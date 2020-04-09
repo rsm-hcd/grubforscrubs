@@ -11,12 +11,25 @@ button, .button {
     text-align: center;
     min-width: 8em;
 
+    &:hover {
+        background-color: darken($red, 10%);
+    }
+
     &.-blue {
         background-color: $blue;
+
+        &:hover {
+            background-color: darken($blue, 10%);
+        }
     }
 
     &.-white {
         background-color: white;
         color: $red;
+
+        &:hover {
+            background-color: $red;
+            color: white;
+        }
     }
 }

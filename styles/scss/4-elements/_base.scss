@@ -32,3 +32,11 @@ ol, ul {
 .-preload {
     visibility: hidden;
 }
+
+a {
+    color: $darkGrey;
+}
+
+a, button, .button {
+    transition: all .16s ease-in-out;
+}

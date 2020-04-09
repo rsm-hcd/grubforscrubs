@@ -31,6 +31,12 @@ ol, ul {
 .-preload {
   visibility: hidden; }
 
+a {
+  color: #4a4c4d; }
+
+a, button, .button {
+  transition: all .16s ease-in-out; }
+
 button, .button {
   background-color: #fa5356;
   font-family: "trumpsoftpro", sans-serif;
@@ -43,11 +49,18 @@ button, .button {
   padding: 0 1.5em;
   text-align: center;
   min-width: 8em; }
+  button:hover, .button:hover {
+    background-color: #f92125; }
   button.-blue, .button.-blue {
     background-color: #3eb9d9; }
+    button.-blue:hover, .button.-blue:hover {
+      background-color: #269fbe; }
   button.-white, .button.-white {
     background-color: white;
     color: #fa5356; }
+    button.-white:hover, .button.-white:hover {
+      background-color: #fa5356;
+      color: white; }
 
 h2 {
   font-size: 2em;
@@ -178,6 +191,8 @@ p {
     text-transform: uppercase;
     letter-spacing: .1em;
     text-decoration: underline; }
+    .footer a:hover {
+      color: #c2c4c6; }
   .footer-wrapper {
     display: flex;
     flex-direction: row;
@@ -361,6 +376,10 @@ p {
     @media only screen and (min-width: 1000px) {
       .process p {
         padding: 0 4em 0 0; } }
+    .process p a {
+      color: white; }
+      .process p a:hover {
+        color: #c2c4c6; }
   .process-diagram img {
     width: 100%; }
 
