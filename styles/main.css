@@ -28,6 +28,9 @@ h1, h2, h3, h4, h5, h6 {
 ol, ul {
   list-style: none; }
 
+.-preload {
+  visibility: hidden; }
+
 button, .button {
   background-color: #fa5356;
   font-family: "trumpsoftpro", sans-serif;
@@ -411,3 +414,5 @@ p {
     font-weight: bold; }
   .restaurant .button {
     margin-top: 1.5em; }
+
+/*# sourceMappingURL=main.css.map */
