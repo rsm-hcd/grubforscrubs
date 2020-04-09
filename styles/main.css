@@ -399,6 +399,7 @@ p {
     justify-content: center;
     align-items: center; }
     .restaurant-logo img {
+      max-height: 100%;
       max-width: 100%; }
   .restaurant-name {
     text-transform: uppercase;
