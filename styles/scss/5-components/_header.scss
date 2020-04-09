@@ -1,0 +1,141 @@
+.header {
+    display: flex;
+    flex-direction: column;
+    // justify-content: space-between;
+    align-items: stretch;
+
+    @media only screen and (min-width: 1000px) {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    &-text {
+        position: relative;
+        width: 100%;
+        z-index: 2;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+
+        @media only screen and (max-width: 1000px) {
+            padding-bottom: 4vw;
+            align-items: center;
+        }
+
+        @media only screen and (min-width: 1000px) {
+            padding-left: 4vw;
+            width: 50vw;
+        }
+
+        &-logo {
+            margin-top: 2rem;
+        }
+
+        &-title {
+            font-family: $brandFont;
+            font-size: 5rem;
+            color: $blue;
+            line-height: 1;
+            text-transform: uppercase;
+            letter-spacing: .3rem;
+            margin-top: 1rem;
+
+            @media only screen and (max-width: 1000px) {
+                text-align: center;
+            }
+
+            @media only screen and (min-width: 1000px) {
+                margin-top: calc(5vw * 1.5 - 2rem);
+            }
+        
+            span {
+                display: block;
+            }
+        
+            &-accent {
+                color: $red;
+                font-size: 2.5rem;
+                margin: .25rem 0;
+            }
+        }
+    
+        &-subtitle {
+            margin-top: 1rem;
+            max-width: 18em;
+            font-size: 1.25em;
+            line-height: 1.5;
+
+            @media only screen and (max-width: 1000px) {
+                text-align: center;
+                margin: 1rem 4vw 0;
+            }
+
+            @media only screen and (min-width: 1000px) {
+                margin-top: calc(2vw * 2 - 1rem);
+            }
+        }
+
+        &-arrow {
+            margin-top: 1rem;
+
+            @media only screen and (min-width: 1000px) {
+                margin-top: calc(4vw * 2 - 2em);
+            }
+            
+        }
+    }
+
+    &-hero {
+        width: 100%;
+        position: relative;
+        background-color: $blue;
+        z-index: 1;
+
+        @media only screen and (max-width: 1000px) {
+            height: 16em;
+            overflow: hidden;
+            margin-top: 2em;
+        }
+
+        @media only screen and (min-width: 1000px) {
+            width: 50vw;
+            border-bottom-left-radius: $border-radius;
+        }
+
+        &-image {
+            position: relative;
+            display: block;
+            z-index: 1;
+            top: 0;
+
+            @media only screen and (max-width: 1000px) {
+                right: 0;
+                width: 100%;
+            }
+
+            @media only screen and (min-width: 1000px) {
+                left: -5vw;
+                right: -5vw;
+                min-height: 100%;
+            }
+
+            @media only screen and (min-width: 1200px) {
+                left: -10vw;
+                right: 0;
+                width: 60vw;
+            }
+        }
+
+        .counter {
+            position: absolute;
+            margin-top: 3rem;
+            left: 5vw;
+            right: 5vw;
+            z-index: 2;
+
+            @media only screen and (min-width: 1000px) {
+                margin-top: 2rem;
+            }
+        }
+    }
+}

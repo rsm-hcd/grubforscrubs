@@ -1,0 +1,14 @@
+{
+  "name": "grub-for-scrubs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.html",
+  "scripts": {
+    "scss": "node-sass --watch styles/scss/ -o styles/"
+  },
+  "author": "Alex Getty <agetty@andculture.com> (http://alexgetty.co)",
+  "license": "ISC",
+  "dependencies": {
+    "node-sass": "^4.13.1"
+  }
+}

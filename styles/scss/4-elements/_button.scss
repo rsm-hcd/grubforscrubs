@@ -1,0 +1,22 @@
+button, .button {
+    background-color: $red;
+    font-family: $brandFont;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: .2em;
+    line-height: 2em;
+    border-radius: $border-radius;
+    text-decoration: none;
+    padding: 0 1.5em;
+    text-align: center;
+    min-width: 8em;
+
+    &.-blue {
+        background-color: $blue;
+    }
+
+    &.-white {
+        background-color: white;
+        color: $red;
+    }
+}
