@@ -1,0 +1,18 @@
+{{#if items}}
+{{#each items as |item|}}
+<li class="restaurant">
+    <div class="restaurant-logo">
+        <img src="{{item.avatar.secure_url}}" class="c-leaderboard__column__logo" alt="{{item.school_name}} Logo">
+    </div>
+    <h3 class="restaurant-name">{{item.school_name}}</h3>
+    <label class="restaurant-raised">{{item.totalRaised}}</label>
+    <a class="button" href="{{item.url}}">Donate</a>
+</li>
+{{/each}}
+{{else}}
+<div class="no-results -center">
+    <p class="-caption">No Results Found.</p>
+    <a href="https://pledgeit.org/cvc20-general-donations/donate" class="c-button -secondary" target="_blank">Make A
+        General Donation</a>
+</div>
+{{/if}}

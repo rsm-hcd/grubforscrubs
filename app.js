@@ -10,6 +10,49 @@
     window.grubforscrubs.templates = window.grubforscrubs.templates || {};
 }).call(this);
 
+this["grubforscrubs"] = this["grubforscrubs"] || {};
+this["grubforscrubs"]["templates"] = this["grubforscrubs"]["templates"] || {};
+
+this["grubforscrubs"]["templates"]["leaderboard"] = Handlebars.template({"1":function(container,depth0,helpers,partials,data,blockParams) {
+    var stack1, lookupProperty = container.lookupProperty || function(parent, propertyName) {
+        if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
+          return parent[propertyName];
+        }
+        return undefined
+    };
+
+  return ((stack1 = lookupProperty(helpers,"each").call(depth0 != null ? depth0 : (container.nullContext || {}),(depth0 != null ? lookupProperty(depth0,"items") : depth0),{"name":"each","hash":{},"fn":container.program(2, data, 1, blockParams),"inverse":container.noop,"data":data,"blockParams":blockParams,"loc":{"start":{"line":2,"column":0},"end":{"line":11,"column":9}}})) != null ? stack1 : "");
+},"2":function(container,depth0,helpers,partials,data,blockParams) {
+    var stack1, alias1=container.lambda, alias2=container.escapeExpression, lookupProperty = container.lookupProperty || function(parent, propertyName) {
+        if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
+          return parent[propertyName];
+        }
+        return undefined
+    };
+
+  return "<li class=\"restaurant\">\r\n    <div class=\"restaurant-logo\">\r\n        <img src=\""
+    + alias2(alias1(((stack1 = ((stack1 = blockParams[0][0]) != null ? lookupProperty(stack1,"avatar") : stack1)) != null ? lookupProperty(stack1,"secure_url") : stack1), depth0))
+    + "\" class=\"c-leaderboard__column__logo\" alt=\""
+    + alias2(alias1(((stack1 = blockParams[0][0]) != null ? lookupProperty(stack1,"school_name") : stack1), depth0))
+    + " Logo\">\r\n    </div>\r\n    <h3 class=\"restaurant-name\">"
+    + alias2(alias1(((stack1 = blockParams[0][0]) != null ? lookupProperty(stack1,"school_name") : stack1), depth0))
+    + "</h3>\r\n    <label class=\"restaurant-raised\">"
+    + alias2(alias1(((stack1 = blockParams[0][0]) != null ? lookupProperty(stack1,"totalRaised") : stack1), depth0))
+    + "</label>\r\n    <a class=\"button\" href=\""
+    + alias2(alias1(((stack1 = blockParams[0][0]) != null ? lookupProperty(stack1,"url") : stack1), depth0))
+    + "\">Donate</a>\r\n</li>\r\n";
+},"4":function(container,depth0,helpers,partials,data) {
+    return "<div class=\"no-results -center\">\r\n    <p class=\"-caption\">No Results Found.</p>\r\n    <a href=\"https://pledgeit.org/cvc20-general-donations/donate\" class=\"c-button -secondary\" target=\"_blank\">Make A\r\n        General Donation</a>\r\n</div>\r\n";
+},"compiler":[8,">= 4.3.0"],"main":function(container,depth0,helpers,partials,data,blockParams) {
+    var stack1, lookupProperty = container.lookupProperty || function(parent, propertyName) {
+        if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
+          return parent[propertyName];
+        }
+        return undefined
+    };
+
+  return ((stack1 = lookupProperty(helpers,"if").call(depth0 != null ? depth0 : (container.nullContext || {}),(depth0 != null ? lookupProperty(depth0,"items") : depth0),{"name":"if","hash":{},"fn":container.program(1, data, 0, blockParams),"inverse":container.program(4, data, 0, blockParams),"data":data,"blockParams":blockParams,"loc":{"start":{"line":1,"column":0},"end":{"line":18,"column":7}}})) != null ? stack1 : "");
+},"useData":true,"useBlockParams":true});
 var services = pledgeit.services;
 var templates = grubforscrubs.templates;
 var views = grubforscrubs.views;
@@ -23,7 +66,6 @@ grubforscrubs.views.MainView = (function () {
         _$stats: null,
         _$restaurants: null,
         _leaderboardService: null,
-        _restaurantData: null,
 
         // --------------------------------------------
         // Initialization
@@ -32,12 +74,12 @@ grubforscrubs.views.MainView = (function () {
         _initialize: function () {
             this._$stats = $('[gs-total]');
             this._$restaurants = $('[gs-restaurants]');
-            this._restaurantData = [];
 
             this._leaderboardService = new services.LeaderboardService();
 
             // Retrieve all leaderboards via the API
             this._getStats();
+            this._getRestaurants()
         },
 
         // --------------------------------------------
@@ -50,118 +92,36 @@ grubforscrubs.views.MainView = (function () {
             });
         },
 
-        _getLeaderboard: function (level, searchText, isIndividual, $target) {
+        _getRestaurants: function () {
             pageSize = undefined;
             limit = undefined;
             skip = undefined;
             size = undefined;
-            if ($target != null) {
-                currentPage = $target.data('leaderboard-page');
-                pageSize = $target.data('leaderboard-page-size');
-                size = $target.data('leaderboard-size');
-
-                if ($target.data('leaderboard-load') !== 'full') {
-                    limit = pageSize;
-                }
-
-                if (pageSize != null) {
-                    skip = (currentPage - 1) * pageSize;
-                }
-            }
 
             this._leaderboardService.getLeaderboard({
-                name: searchText,
-                level: level,
-                onSuccess: $.proxy(this._handleLeaderboardSuccess.bind(this, level, skip, pageSize, isIndividual, size, $target), this),
+                name: '',
+                level: 'college',
+                onSuccess: $.proxy(this._handleRestaurantSuccess.bind(this), this),
                 rankBy: this._sort
-            }, isIndividual);
-        },
-
-        _renderLeaderboard: function (level, skip, limit, textSearch, isIndividual, size, $target) {
-            items = this._leaderboardData[(isIndividual ? 'individual' : 'team')][level];
-            if (textSearch != null) {
-                items = items.filter(function (item) {
-                    return item.name.toLowerCase().includes(searchText);
-                });
-            }
-            template = null;
-
-            if (isIndividual) {
-                if (size === 'small') {
-                    template = templates.individualLeaderboardSmall({
-                        items: items.slice(skip, (skip + limit)),
-                        level: level
-                    });
-                } else {
-                    template = templates.individualLeaderboard({
-                        items: items.slice(skip, (skip + limit)),
-                        level: level
-                    });
-                }
-            } else {
-                if (size === 'small') {
-                    template = templates.leaderboardSmall({
-                        items: items.slice(skip, (skip + limit)),
-                        level: level
-                    });
-                } else {
-                    template = templates.leaderboard({
-                        items: items.slice(skip, (skip + limit)),
-                        level: level
-                    });
-                }
-            }
-
-            $target.append(template);
-            $target.siblings('.c-leaderboard__more').find('[data-leaderboard-more]').toggle(items.length > skip + limit);
-
-            if (!isIndividual) {
-                this._attachItemExpand();
-            }
+            });
         },
 
         // --------------------------------------------
         // Event Handlers
         // --------------------------------------------
 
-        _handleLeaderboardSuccess: function (level, skip, pageSize, isIndividual, size, $target, response) {
-            if (skip == null) {
-                skip = 0;
-            }
+        _handleRestaurantSuccess: function (response) {
+            response.forEach(function (r, i) {
+                fundsRaised = r.stats.overall.estimated_amount_raised;
+                r.rank = i + 1 + skip;
+                r.totalRaised = parseFloat((fundsRaised / 100).toFixed(0)).toLocaleString('en-US', { style: 'currency', maximumFractionDigits: 2, currency: 'USD' });
+                r.totalRaised = r.totalRaised.substring(0, (r.totalRaised.indexOf('.')));
+                r.name = r.school_name;
+            });
 
-            items = response;
-
-            if (isIndividual) {
-                items.forEach(function (r, i) {
-                    fundsRaised = r.estimated_amount_raised;
-                    r.rank = i + 1 + skip;
-                    r.totalRaised = parseFloat((fundsRaised / 100).toFixed(0)).toLocaleString('en-US', { style: 'currency', maximumFractionDigits: 2, currency: 'USD' });
-                    r.totalRaised = r.totalRaised.substring(0, (r.totalRaised.indexOf('.')));
-                    r.name = r.first_name + " " + r.last_name;
-                    r.url = "https://pledgeit.org/" + r.campaign_slug + "/@" + r.username;
-
-                    if (level === 'college') {
-                        r.state_prov = undefined;
-                    }
-                });
-            } else {
-                items.forEach(function (r, i) {
-                    fundsRaised = r.stats.overall.estimated_amount_raised;
-                    r.rank = i + 1 + skip;
-                    r.totalRaised = parseFloat((fundsRaised / 100).toFixed(0)).toLocaleString('en-US', { style: 'currency', maximumFractionDigits: 2, currency: 'USD' });
-                    r.totalRaised = r.totalRaised.substring(0, (r.totalRaised.indexOf('.')));
-                    r.name = r.school_name;
-                });
-            }
-
-            if (this._leaderboardData[(isIndividual ? 'individual' : 'team')][level] == null) {
-                this._leaderboardData[(isIndividual ? 'individual' : 'team')][level] = [];
-            }
-            this._leaderboardData[(isIndividual ? 'individual' : 'team')][level] = this._leaderboardData[(isIndividual ? 'individual' : 'team')][level].concat(items);
-
-            if ($target != null) {
-                this._renderLeaderboard(level, skip, pageSize, null, isIndividual, size, $target);
-            }
+            this._$restaurants.html(templates.leaderboard({
+                items: response
+            }));
         },
 
         _handleStatsSuccess: function (response) {

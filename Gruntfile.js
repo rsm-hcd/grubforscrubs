@@ -20,7 +20,7 @@ module.exports = function (grunt) {
                 options: {
                     namespace: "grubforscrubs.templates",
                     processName: function (filePath) {
-                        return filePath.replace(/^assets\/templates\//, '').replace(/\.hbs$/, '');
+                        return filePath.replace(/^templates\//, '').replace(/\.hbs$/, '');
                     }
                 },
                 files: {
@@ -31,7 +31,7 @@ module.exports = function (grunt) {
                 options: {
                     namespace: "grubforscrubs.templates",
                     processName: function (filePath) {
-                        return filePath.replace(/^assets\/templates\//, '').replace(/\.hbs$/, '');
+                        return filePath.replace(/^templates\//, '').replace(/\.hbs$/, '');
                     }
                 },
                 files: {
