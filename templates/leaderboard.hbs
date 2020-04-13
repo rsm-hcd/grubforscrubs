@@ -6,7 +6,8 @@
     </div>
     <h3 class="restaurant-name">{{item.school_name}}</h3>
     <label class="restaurant-raised">{{item.totalRaised}}</label>
-    <a class="button" href="{{item.url}}/fundraise" target="_blank">Donate</a>
+    <a class="button" href="{{item.url}}/fundraise" target="_blank"
+        onclick="gtag('event', 'click', {'event_category': 'Donate Button', 'event_label': '{{item.school_name}}'});">Donate</a>
 </li>
 {{/each}}
 {{/if}}
