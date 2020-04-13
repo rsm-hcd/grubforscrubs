@@ -30,19 +30,19 @@ this["grubforscrubs"]["templates"]["leaderboard"] = Handlebars.template({"1":fun
         return undefined
     };
 
-  return "<li class=\"restaurant\">\n    <div class=\"restaurant-logo\">\n        <img src=\""
+  return "<li class=\"restaurant\">\r\n    <div class=\"restaurant-logo\">\r\n        <img src=\""
     + alias2(alias1(((stack1 = ((stack1 = blockParams[0][0]) != null ? lookupProperty(stack1,"avatar") : stack1)) != null ? lookupProperty(stack1,"secure_url") : stack1), depth0))
     + "\" class=\"c-leaderboard__column__logo\" alt=\""
     + alias2(alias1(((stack1 = blockParams[0][0]) != null ? lookupProperty(stack1,"school_name") : stack1), depth0))
-    + " Logo\">\n    </div>\n    <h3 class=\"restaurant-name\">"
+    + " Logo\">\r\n    </div>\r\n    <h3 class=\"restaurant-name\">"
     + alias2(alias1(((stack1 = blockParams[0][0]) != null ? lookupProperty(stack1,"school_name") : stack1), depth0))
-    + "</h3>\n    <label class=\"restaurant-raised\">"
+    + "</h3>\r\n    <label class=\"restaurant-raised\">"
     + alias2(alias1(((stack1 = blockParams[0][0]) != null ? lookupProperty(stack1,"totalRaised") : stack1), depth0))
-    + "</label>\n    <a class=\"button\" href=\""
+    + "</label>\r\n    <a class=\"button\" href=\""
     + alias2(alias1(((stack1 = blockParams[0][0]) != null ? lookupProperty(stack1,"url") : stack1), depth0))
-    + "\">Donate</a>\n</li>\n";
+    + "/fundraise\" target=\"_blank\">Donate</a>\r\n</li>\r\n";
 },"4":function(container,depth0,helpers,partials,data) {
-    return "<div class=\"no-results -center\">\n    <p class=\"-caption\">No Results Found.</p>\n    <a href=\"https://pledgeit.org/cvc20-general-donations/donate\" class=\"c-button -secondary\" target=\"_blank\">Make A\n        General Donation</a>\n</div>\n";
+    return "<div class=\"no-results -center\">\r\n    <p class=\"-caption\">No Results Found.</p>\r\n    <a href=\"https://pledgeit.org/cvc20-general-donations/donate\" class=\"c-button -secondary\" target=\"_blank\">Make A\r\n        General Donation</a>\r\n</div>\r\n";
 },"compiler":[8,">= 4.3.0"],"main":function(container,depth0,helpers,partials,data,blockParams) {
     var stack1, lookupProperty = container.lookupProperty || function(parent, propertyName) {
         if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
