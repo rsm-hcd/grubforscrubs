@@ -6,8 +6,6 @@
     window.grubforscrubs = window.grubforscrubs || {};
 
     window.grubforscrubs.views = window.grubforscrubs.views || {};
-
-    window.grubforscrubs.templates = window.grubforscrubs.templates || {};
 }).call(this);
 
 pledgeit.services.LeaderboardService = (function () {
@@ -31,8 +29,8 @@ pledgeit.services.LeaderboardService = (function () {
         // Properties
         // --------------------------------------------
 
-        _campaignEndpoint: "https://pledgeit.org/api-public/campaigns/stats?tags=program:cvc20",
-        _leaderboardEndpoint: "https://pledgeit.org/api-public/partners/acs/cvc20/leaderboard?",
+        _campaignEndpoint: "https://pledgeit.org/api-public/widgets/campaigns",
+        _templateEndpoint: "https://pledgeit.org/api-public/widgets/templates",
 
 
         // --------------------------------------------
@@ -59,32 +57,24 @@ pledgeit.services.LeaderboardService = (function () {
         // --------------------------------------------
 
 		/**
-		 * Get the full leaderboard using the PledgeIt leaderboard API
+		 * Get the campaign using the PledgeIt widget API
+		 * @param {string}   slug - The campaign slug
 		 * @param {function} requestParams - Request parameters object
-		 * @param {string}   requestParams.limit - The number of results that should be returned
-		 * @param {string}   requestParams.level - The level of used for filtering
-		 * @param {string}   requestParams.name - The name of used for filtering
 		 * @param {string}	 requestParams.onSuccess - Callback for when the API call finishes successfully
-		 * @param {string}   requestParams.rankBy - Sort by "rank", "name", "state", "results"
-		 * @param {string}   requestParams.skip - Number of records to skip for paging
 		 */
-        getLeaderboard: function (requestParams) {
-            this._makeRequest(this._leaderboardEndpoint, requestParams, true);
+        getCampaign: function (slug, requestParams) {
+            this._makeRequest(this._campaignEndpoint + "/" + slug, requestParams);
         },
 
-		/**
-		 * Get the statistics for the home page
-		 * @param {function} requestParams 				- Request parameters object
-		 * @param {string}   requestParams.limit		- The number of results that should be returned
-		 * @param {string}   requestParams.name			- The name of used for filtering
-		 * @param {string}	 requestParams.onSuccess	- Callback for when the API call finishes successfully
-		 * @param {string}   requestParams.type 		- The Type of data
+        /**
+		 * Get the template using the PledgeIt widget API
+		 * @param {string}   slug - The campaign slug
+		 * @param {function} requestParams - Request parameters object
+		 * @param {string}	 requestParams.onSuccess - Callback for when the API call finishes successfully
 		 */
-        getStats: function (requestParams) {
-            var endpoint = this._campaignEndpoint;
-            this._makeRequest(endpoint, requestParams, true);
+        getTemplate: function (slug, requestParams) {
+            this._makeRequest(this._templateEndpoint + "/" + slug, requestParams);
         },
-
 
         // --------------------------------------------
         // Private Methods
@@ -93,52 +83,10 @@ pledgeit.services.LeaderboardService = (function () {
 		/**
 		 * Get the weekly leaderboard based on the week specified
 		 * @param {string} 	 endpoint 					- Endpoint URL for the AJAX request
-		 * @param {function} requestParams 				- Request parameters object
-		 * @param {number}   requestParams.limit		- The number of results that should be returned
-		 * @param {string}   requestParams.level		- The level of used for filtering
+         * @param {function} requestParams 				- Request parameters object
 		 * @param {function} requestParams.onSuccess	- Callback for when the API call finishes successfully
-		 * @param {string}   requestParams.rankBy		- Sort by "rank", "name", "state", "results"
-		 * @param {string}   requestParams.skip         - Number of records to skip for paging
-		 * @param {string}   requestParams.tags			- Type of campaign
 		 */
-        _makeRequest: function (endpoint, requestParams, includeParams) {
-            endpoint += "";
-            includeParams = includeParams == undefined ? false : includeParams;
-
-            if (includeParams) {
-                if (requestParams.type) {
-                    endpoint += requestParams.type + "?";
-                }
-
-                if (requestParams.limit) {
-                    endpoint += "limit=" + requestParams.limit.toString() + "&";
-                }
-
-                if (requestParams.name) {
-                    endpoint += "school_name=" + requestParams.name.toString() + "&";
-                }
-
-                if (requestParams.level) {
-                    endpoint += "level=" + requestParams.level + "&";
-                }
-
-                if (requestParams.rankBy) {
-                    endpoint += "rankBy=" + requestParams.rankBy + "&";
-                }
-
-                if (requestParams.skip) {
-                    endpoint += "skip=" + requestParams.skip + "&";
-                }
-
-                if (requestParams.tags) {
-                    endpoint += "tags=" + requestParams.tags.toString();
-                }
-            }
-
-            if (endpoint.endsWith("?")) {
-                endpoint = endpoint.slice(0, -1);
-            }
-
+        _makeRequest: function (endpoint, requestParams) {
             $.ajax({
                 crossDomain: true,
                 dataType: "json",
@@ -147,10 +95,6 @@ pledgeit.services.LeaderboardService = (function () {
                 url: endpoint,
                 success: function (response) {
                     var items = response;
-
-                    if (!includeParams && items.length) {
-                        items = items.slice(0, requestParams.limit);
-                    }
 
                     if (requestParams.onSuccess) {
                         requestParams.onSuccess(items);
@@ -163,51 +107,7 @@ pledgeit.services.LeaderboardService = (function () {
     return LeaderboardService;
 })();
 
-this["grubforscrubs"] = this["grubforscrubs"] || {};
-this["grubforscrubs"]["templates"] = this["grubforscrubs"]["templates"] || {};
-
-this["grubforscrubs"]["templates"]["leaderboard"] = Handlebars.template({"1":function(container,depth0,helpers,partials,data,blockParams) {
-    var stack1, lookupProperty = container.lookupProperty || function(parent, propertyName) {
-        if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
-          return parent[propertyName];
-        }
-        return undefined
-    };
-
-  return ((stack1 = lookupProperty(helpers,"each").call(depth0 != null ? depth0 : (container.nullContext || {}),(depth0 != null ? lookupProperty(depth0,"items") : depth0),{"name":"each","hash":{},"fn":container.program(2, data, 1, blockParams),"inverse":container.noop,"data":data,"blockParams":blockParams,"loc":{"start":{"line":2,"column":0},"end":{"line":12,"column":9}}})) != null ? stack1 : "");
-},"2":function(container,depth0,helpers,partials,data,blockParams) {
-    var stack1, alias1=container.lambda, alias2=container.escapeExpression, lookupProperty = container.lookupProperty || function(parent, propertyName) {
-        if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
-          return parent[propertyName];
-        }
-        return undefined
-    };
-
-  return "<li class=\"restaurant\">\r\n    <div class=\"restaurant-logo\">\r\n        <img src=\""
-    + alias2(alias1(((stack1 = ((stack1 = blockParams[0][0]) != null ? lookupProperty(stack1,"avatar") : stack1)) != null ? lookupProperty(stack1,"secure_url") : stack1), depth0))
-    + "\" class=\"c-leaderboard__column__logo\" alt=\""
-    + alias2(alias1(((stack1 = blockParams[0][0]) != null ? lookupProperty(stack1,"school_name") : stack1), depth0))
-    + " Logo\">\r\n    </div>\r\n    <h3 class=\"restaurant-name\">"
-    + alias2(alias1(((stack1 = blockParams[0][0]) != null ? lookupProperty(stack1,"school_name") : stack1), depth0))
-    + "</h3>\r\n    <label class=\"restaurant-raised\">"
-    + alias2(alias1(((stack1 = blockParams[0][0]) != null ? lookupProperty(stack1,"totalRaised") : stack1), depth0))
-    + "</label>\r\n    <a class=\"button\" href=\""
-    + alias2(alias1(((stack1 = blockParams[0][0]) != null ? lookupProperty(stack1,"url") : stack1), depth0))
-    + "/fundraise\" target=\"_blank\"\r\n        onclick=\"gtag('event', 'click', {'event_category': 'Donate Button', 'event_label': '"
-    + alias2(alias1(((stack1 = blockParams[0][0]) != null ? lookupProperty(stack1,"school_name") : stack1), depth0))
-    + "'});\">Donate</a>\r\n</li>\r\n";
-},"compiler":[8,">= 4.3.0"],"main":function(container,depth0,helpers,partials,data,blockParams) {
-    var stack1, lookupProperty = container.lookupProperty || function(parent, propertyName) {
-        if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
-          return parent[propertyName];
-        }
-        return undefined
-    };
-
-  return ((stack1 = lookupProperty(helpers,"if").call(depth0 != null ? depth0 : (container.nullContext || {}),(depth0 != null ? lookupProperty(depth0,"items") : depth0),{"name":"if","hash":{},"fn":container.program(1, data, 0, blockParams),"inverse":container.noop,"data":data,"blockParams":blockParams,"loc":{"start":{"line":1,"column":0},"end":{"line":13,"column":7}}})) != null ? stack1 : "");
-},"useData":true,"useBlockParams":true});
 var services = pledgeit.services;
-var templates = grubforscrubs.templates;
 var views = grubforscrubs.views;
 
 grubforscrubs.views.MainView = (function () {
@@ -240,57 +140,46 @@ grubforscrubs.views.MainView = (function () {
         // --------------------------------------------
 
         _getStats: function () {
-            this._leaderboardService.getStats({
-                onSuccess: $.proxy(this._handleStatsSuccess, this)
-            });
+            this._leaderboardService.getTemplate("grub-for-scrubs-hbg", {
+                onSuccess: $.proxy(function (response) {
+                    this._$stats
+                        .text("$" + response.amountRaised)
+                        .removeClass("-preload");
+                }, this)
+            })
         },
 
         _getRestaurants: function () {
-            pageSize = undefined;
-            limit = undefined;
-            skip = undefined;
-            size = undefined;
 
-            this._leaderboardService.getLeaderboard({
-                name: '',
-                level: 'college',
-                onSuccess: $.proxy(this._handleRestaurantSuccess.bind(this), this),
-                rankBy: this._sort
-            });
+            this._$restaurants.find("[gs-slug]").each($.proxy(function (index, restaurant) {
+                this._leaderboardService.getCampaign(restaurant.getAttribute("gs-slug"), {
+                    onSuccess: function (response) {
+                        $target = $(restaurant);
+                        $target.find("[gs-amount]")
+                            .text("$" + response.amountRaised)
+                            .removeClass("-preload");
+
+                        $target.find("[gs-donate]")
+                            .attr("href", response.url + "/donate");
+                    }
+                });
+            }, this))
         },
 
         // --------------------------------------------
         // Event Handlers
         // --------------------------------------------
 
-        _handleRestaurantSuccess: function (response) {
-            response.forEach(function (r, i) {
-                fundsRaised = r.stats.overall.estimated_amount_raised;
-                r.rank = i + 1 + skip;
-                r.totalRaised = parseFloat((fundsRaised / 100).toFixed(0)).toLocaleString('en-US', { style: 'currency', maximumFractionDigits: 2, currency: 'USD' });
-                r.totalRaised = r.totalRaised.substring(0, (r.totalRaised.indexOf('.')));
-                r.name = r.school_name;
-            });
-
-            this._$restaurants.html(templates.leaderboard({
-                items: response
-            }));
+        _handleRestaurantSuccess: function (response, $target) {
+            $target.find("[gs-amount]")
+                .text("$" + response.amountRaised)
+                .removeClass("-preload");
         },
 
-        _handleStatsSuccess: function (response) {
-            if (response.performance_metrics) {
-                var totalRaised = response.overall.estimated_amount_raised;
-
-                var fundsRaised = parseFloat((totalRaised / 100).toFixed(0)).toLocaleString('en-US', { style: 'currency', maximumFractionDigits: 2, currency: 'USD' });
-
-                var stats = {
-                    totalRaised: fundsRaised.substring(0, (fundsRaised.indexOf('.')))
-                };
-
-                this._$stats
-                    .text(stats.totalRaised)
-                    .removeClass('-preload');
-            }
+        _handleStatSuccess: function (response, $target) {
+            $target
+                .text("$" + response.amountRaised)
+                .removeClass("-preload");
         }
     };
 

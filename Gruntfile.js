@@ -15,31 +15,6 @@ module.exports = function (grunt) {
             }
         },
 
-        handlebars: {
-            dev: {
-                options: {
-                    namespace: "grubforscrubs.templates",
-                    processName: function (filePath) {
-                        return filePath.replace(/^assets\/templates\//, '').replace(/\.hbs$/, '');
-                    }
-                },
-                files: {
-                    "assets/js/grubforscrubs/templates/templates.js": ["assets/templates/**/*.hbs"]
-                }
-            },
-            dist: {
-                options: {
-                    namespace: "grubforscrubs.templates",
-                    processName: function (filePath) {
-                        return filePath.replace(/^assets\/templates\//, '').replace(/\.hbs$/, '');
-                    }
-                },
-                files: {
-                    "assets/js/grubforscrubs/templates/templates.js": ["assets/templates/**/*.hbs"]
-                }
-            }
-        },
-
         cssmin: {
             options: {
                 banner: '/*\n <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> \n*/\n'
@@ -70,15 +45,11 @@ module.exports = function (grunt) {
         watch: {
             css: {
                 files: 'assets/scss/**/*.scss',
-                tasks: ['sass']
-            },
-            handlebars: {
-                files: 'assets/templates/**/*.hbs',
-                tasks: ['handlebars']
+                tasks: ['sass', 'cssmin', 'uglify']
             },
             js: {
                 files: 'assets/js/**/*.js',
-                tasks: ['concat']
+                tasks: ['concat', 'uglify']
             }
         }
 
@@ -92,11 +63,10 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-cssmin');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-concat');
-    grunt.loadNpmTasks('grunt-contrib-handlebars');
 
     // ===========================================================================
     // CREATE TASKS ==============================================================
     // ===========================================================================
-    grunt.registerTask('default', ['sass', 'handlebars', 'concat', 'watch']);
-    grunt.registerTask('build', ['sass', 'handlebars', 'concat', 'cssmin', 'uglify']);
+    grunt.registerTask('default', ['sass', 'concat', 'watch']);
+    grunt.registerTask('build', ['sass', 'concat', 'cssmin', 'uglify']);
 };

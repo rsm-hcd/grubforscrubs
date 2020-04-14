@@ -6,6 +6,4 @@
     window.grubforscrubs = window.grubforscrubs || {};
 
     window.grubforscrubs.views = window.grubforscrubs.views || {};
-
-    window.grubforscrubs.templates = window.grubforscrubs.templates || {};
 }).call(this);

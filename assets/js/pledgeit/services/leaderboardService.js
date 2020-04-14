@@ -19,8 +19,8 @@ pledgeit.services.LeaderboardService = (function () {
         // Properties
         // --------------------------------------------
 
-        _campaignEndpoint: "https://pledgeit.org/api-public/campaigns/stats?tags=program:cvc20",
-        _leaderboardEndpoint: "https://pledgeit.org/api-public/partners/acs/cvc20/leaderboard?",
+        _campaignEndpoint: "https://pledgeit.org/api-public/widgets/campaigns",
+        _templateEndpoint: "https://pledgeit.org/api-public/widgets/templates",
 
 
         // --------------------------------------------
@@ -47,32 +47,24 @@ pledgeit.services.LeaderboardService = (function () {
         // --------------------------------------------
 
 		/**
-		 * Get the full leaderboard using the PledgeIt leaderboard API
+		 * Get the campaign using the PledgeIt widget API
+		 * @param {string}   slug - The campaign slug
 		 * @param {function} requestParams - Request parameters object
-		 * @param {string}   requestParams.limit - The number of results that should be returned
-		 * @param {string}   requestParams.level - The level of used for filtering
-		 * @param {string}   requestParams.name - The name of used for filtering
 		 * @param {string}	 requestParams.onSuccess - Callback for when the API call finishes successfully
-		 * @param {string}   requestParams.rankBy - Sort by "rank", "name", "state", "results"
-		 * @param {string}   requestParams.skip - Number of records to skip for paging
 		 */
-        getLeaderboard: function (requestParams) {
-            this._makeRequest(this._leaderboardEndpoint, requestParams, true);
+        getCampaign: function (slug, requestParams) {
+            this._makeRequest(this._campaignEndpoint + "/" + slug, requestParams);
         },
 
-		/**
-		 * Get the statistics for the home page
-		 * @param {function} requestParams 				- Request parameters object
-		 * @param {string}   requestParams.limit		- The number of results that should be returned
-		 * @param {string}   requestParams.name			- The name of used for filtering
-		 * @param {string}	 requestParams.onSuccess	- Callback for when the API call finishes successfully
-		 * @param {string}   requestParams.type 		- The Type of data
+        /**
+		 * Get the template using the PledgeIt widget API
+		 * @param {string}   slug - The campaign slug
+		 * @param {function} requestParams - Request parameters object
+		 * @param {string}	 requestParams.onSuccess - Callback for when the API call finishes successfully
 		 */
-        getStats: function (requestParams) {
-            var endpoint = this._campaignEndpoint;
-            this._makeRequest(endpoint, requestParams, true);
+        getTemplate: function (slug, requestParams) {
+            this._makeRequest(this._templateEndpoint + "/" + slug, requestParams);
         },
-
 
         // --------------------------------------------
         // Private Methods
@@ -81,52 +73,10 @@ pledgeit.services.LeaderboardService = (function () {
 		/**
 		 * Get the weekly leaderboard based on the week specified
 		 * @param {string} 	 endpoint 					- Endpoint URL for the AJAX request
-		 * @param {function} requestParams 				- Request parameters object
-		 * @param {number}   requestParams.limit		- The number of results that should be returned
-		 * @param {string}   requestParams.level		- The level of used for filtering
+         * @param {function} requestParams 				- Request parameters object
 		 * @param {function} requestParams.onSuccess	- Callback for when the API call finishes successfully
-		 * @param {string}   requestParams.rankBy		- Sort by "rank", "name", "state", "results"
-		 * @param {string}   requestParams.skip         - Number of records to skip for paging
-		 * @param {string}   requestParams.tags			- Type of campaign
 		 */
-        _makeRequest: function (endpoint, requestParams, includeParams) {
-            endpoint += "";
-            includeParams = includeParams == undefined ? false : includeParams;
-
-            if (includeParams) {
-                if (requestParams.type) {
-                    endpoint += requestParams.type + "?";
-                }
-
-                if (requestParams.limit) {
-                    endpoint += "limit=" + requestParams.limit.toString() + "&";
-                }
-
-                if (requestParams.name) {
-                    endpoint += "school_name=" + requestParams.name.toString() + "&";
-                }
-
-                if (requestParams.level) {
-                    endpoint += "level=" + requestParams.level + "&";
-                }
-
-                if (requestParams.rankBy) {
-                    endpoint += "rankBy=" + requestParams.rankBy + "&";
-                }
-
-                if (requestParams.skip) {
-                    endpoint += "skip=" + requestParams.skip + "&";
-                }
-
-                if (requestParams.tags) {
-                    endpoint += "tags=" + requestParams.tags.toString();
-                }
-            }
-
-            if (endpoint.endsWith("?")) {
-                endpoint = endpoint.slice(0, -1);
-            }
-
+        _makeRequest: function (endpoint, requestParams) {
             $.ajax({
                 crossDomain: true,
                 dataType: "json",
@@ -135,10 +85,6 @@ pledgeit.services.LeaderboardService = (function () {
                 url: endpoint,
                 success: function (response) {
                     var items = response;
-
-                    if (!includeParams && items.length) {
-                        items = items.slice(0, requestParams.limit);
-                    }
 
                     if (requestParams.onSuccess) {
                         requestParams.onSuccess(items);

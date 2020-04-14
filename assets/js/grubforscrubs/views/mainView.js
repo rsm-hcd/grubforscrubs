@@ -1,5 +1,4 @@
 var services = pledgeit.services;
-var templates = grubforscrubs.templates;
 var views = grubforscrubs.views;
 
 grubforscrubs.views.MainView = (function () {
@@ -32,57 +31,46 @@ grubforscrubs.views.MainView = (function () {
         // --------------------------------------------
 
         _getStats: function () {
-            this._leaderboardService.getStats({
-                onSuccess: $.proxy(this._handleStatsSuccess, this)
-            });
+            this._leaderboardService.getTemplate("grub-for-scrubs-hbg", {
+                onSuccess: $.proxy(function (response) {
+                    this._$stats
+                        .text("$" + response.amountRaised)
+                        .removeClass("-preload");
+                }, this)
+            })
         },
 
         _getRestaurants: function () {
-            pageSize = undefined;
-            limit = undefined;
-            skip = undefined;
-            size = undefined;
 
-            this._leaderboardService.getLeaderboard({
-                name: '',
-                level: 'college',
-                onSuccess: $.proxy(this._handleRestaurantSuccess.bind(this), this),
-                rankBy: this._sort
-            });
+            this._$restaurants.find("[gs-slug]").each($.proxy(function (index, restaurant) {
+                this._leaderboardService.getCampaign(restaurant.getAttribute("gs-slug"), {
+                    onSuccess: function (response) {
+                        $target = $(restaurant);
+                        $target.find("[gs-amount]")
+                            .text("$" + response.amountRaised)
+                            .removeClass("-preload");
+
+                        $target.find("[gs-donate]")
+                            .attr("href", response.url + "/donate");
+                    }
+                });
+            }, this))
         },
 
         // --------------------------------------------
         // Event Handlers
         // --------------------------------------------
 
-        _handleRestaurantSuccess: function (response) {
-            response.forEach(function (r, i) {
-                fundsRaised = r.stats.overall.estimated_amount_raised;
-                r.rank = i + 1 + skip;
-                r.totalRaised = parseFloat((fundsRaised / 100).toFixed(0)).toLocaleString('en-US', { style: 'currency', maximumFractionDigits: 2, currency: 'USD' });
-                r.totalRaised = r.totalRaised.substring(0, (r.totalRaised.indexOf('.')));
-                r.name = r.school_name;
-            });
-
-            this._$restaurants.html(templates.leaderboard({
-                items: response
-            }));
+        _handleRestaurantSuccess: function (response, $target) {
+            $target.find("[gs-amount]")
+                .text("$" + response.amountRaised)
+                .removeClass("-preload");
         },
 
-        _handleStatsSuccess: function (response) {
-            if (response.performance_metrics) {
-                var totalRaised = response.overall.estimated_amount_raised;
-
-                var fundsRaised = parseFloat((totalRaised / 100).toFixed(0)).toLocaleString('en-US', { style: 'currency', maximumFractionDigits: 2, currency: 'USD' });
-
-                var stats = {
-                    totalRaised: fundsRaised.substring(0, (fundsRaised.indexOf('.')))
-                };
-
-                this._$stats
-                    .text(stats.totalRaised)
-                    .removeClass('-preload');
-            }
+        _handleStatSuccess: function (response, $target) {
+            $target
+                .text("$" + response.amountRaised)
+                .removeClass("-preload");
         }
     };
 
