@@ -428,7 +428,7 @@ p {
     color: #4a4c4d;
     font-weight: bold;
     font-size: .9rem;
-    min-height: 48px; }
+    flex-grow: 1; }
   .restaurant-raised {
     color: #3eb9d9;
     font-family: "trumpsoftpro", sans-serif;

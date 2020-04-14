@@ -52,7 +52,7 @@
         color: $darkGrey;
         font-weight: bold;
         font-size: .9rem;
-        min-height: 48px
+        flex-grow: 1;
     }
 
     &-raised {
