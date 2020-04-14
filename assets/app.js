@@ -160,7 +160,8 @@ grubforscrubs.views.MainView = (function () {
                             .removeClass("-preload");
 
                         $target.find("[gs-donate]")
-                            .attr("href", response.url + "/donate");
+                            .attr("href", response.url + "/donate")
+                            .removeClass("-preload");
                     }
                 });
             }, this))
