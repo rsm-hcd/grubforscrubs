@@ -10,7 +10,7 @@ module.exports = function (grunt) {
         sass: {
             dist: {
                 files: {
-                    'styles/main.css': 'styles/scss/main.scss'
+                    'assets/main.css': 'assets/scss/main.scss'
                 }
             }
         },
@@ -20,22 +20,22 @@ module.exports = function (grunt) {
                 options: {
                     namespace: "grubforscrubs.templates",
                     processName: function (filePath) {
-                        return filePath.replace(/^templates\//, '').replace(/\.hbs$/, '');
+                        return filePath.replace(/^assets\/templates\//, '').replace(/\.hbs$/, '');
                     }
                 },
                 files: {
-                    "js/grubforscrubs/templates/templates.js": ["templates/**/*.hbs"]
+                    "assets/js/grubforscrubs/templates/templates.js": ["assets/templates/**/*.hbs"]
                 }
             },
             dist: {
                 options: {
                     namespace: "grubforscrubs.templates",
                     processName: function (filePath) {
-                        return filePath.replace(/^templates\//, '').replace(/\.hbs$/, '');
+                        return filePath.replace(/^assets\/templates\//, '').replace(/\.hbs$/, '');
                     }
                 },
                 files: {
-                    "js/grubforscrubs/templates/templates.js": ["templates/**/*.hbs"]
+                    "assets/js/grubforscrubs/templates/templates.js": ["assets/templates/**/*.hbs"]
                 }
             }
         },
@@ -46,7 +46,7 @@ module.exports = function (grunt) {
             },
             build: {
                 files: {
-                    '/assets/css/app.min.css': '/assets/css/app.css'
+                    'assets/main.min.css': 'assets/main.css'
                 }
             }
         },
@@ -54,22 +54,30 @@ module.exports = function (grunt) {
         concat: {
             dist: {
                 files: {
-                    'app.js': ['js/namespaces.js', 'js/**/*.js']
+                    'assets/app.js': ['assets/js/namespaces.js', 'assets/js/pledgeit/**/*.js', 'assets/js/grubforscrubs/**/*.js']
                 }
             },
         },
 
+        uglify: {
+            build: {
+                files: {
+                    'assets/app.min.js': 'assets/app.js'
+                }
+            }
+        },
+
         watch: {
             css: {
-                files: '**/*.scss',
+                files: 'assets/scss/**/*.scss',
                 tasks: ['sass']
             },
             handlebars: {
-                files: 'templates/**/*.hbs',
+                files: 'assets/templates/**/*.hbs',
                 tasks: ['handlebars']
             },
             js: {
-                files: 'js/**/*.js',
+                files: 'assets/js/**/*.js',
                 tasks: ['concat']
             }
         }
@@ -79,6 +87,7 @@ module.exports = function (grunt) {
     // ===========================================================================
     // LOAD GRUNT PLUGINS ========================================================
     // ===========================================================================
+    grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-sass');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
     grunt.loadNpmTasks('grunt-contrib-watch');
@@ -89,6 +98,5 @@ module.exports = function (grunt) {
     // CREATE TASKS ==============================================================
     // ===========================================================================
     grunt.registerTask('default', ['sass', 'handlebars', 'concat', 'watch']);
-    grunt.registerTask('build', ['sass', 'handlebars', 'concat']);
-
+    grunt.registerTask('build', ['sass', 'handlebars', 'concat', 'cssmin', 'uglify']);
 };

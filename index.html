@@ -5,10 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Grub for Scrubs</title>
-    <link href="styles/main.css" rel="stylesheet">
-    <link rel="icon" type="image/png" href="img/favicon.png" sizes="16x16">
-    <link rel="icon" type="image/png" href="img/favicon32.png" sizes="32x32">
-    <link rel="icon" type="image/png" href="img/favicon96.png" sizes="96x96">
+    <link href="assets/main.min.css" rel="stylesheet">
+    <link rel="icon" type="image/png" href="assets/img/favicon.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="assets/img/favicon32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="assets/img/favicon96.png" sizes="96x96">
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-110528549-2"></script>
     <script>
@@ -23,8 +23,8 @@
 <body>
     <header class="header">
         <div class="header-text">
-            <img class="header-text-logo" src="img/header-logo.png"
-                srcset="img/header-logo.png 1x, img/header-logo@2x.png 2x" alt="Grub for Scrubs Logo" />
+            <img class="header-text-logo" src="assets/img/header-logo.png"
+                srcset="assets/img/header-logo.png 1x, img/header-logo@2x.png 2x" alt="Grub for Scrubs Logo" />
             <h1 class="header-text-title">
                 <span>Grub</span>
                 <span class="header-text-title-accent">For</span>
@@ -32,8 +32,8 @@
             </h1>
             <p class="header-text-subtitle">Raising money to support Harrisburg’s restaurants and feed UPMC Pinnacle’s
                 frontline team.</p>
-            <img class="header-text-arrow" src="img/downArrow.png"
-                srcset="img/downArrow.png 1x, img/downArrow@2x.png 2x" alt="An arrow pointing down" />
+            <img class="header-text-arrow" src="assets/img/downArrow.png"
+                srcset="assets/img/downArrow.png 1x, img/downArrow@2x.png 2x" alt="An arrow pointing down" />
         </div>
         <div class="header-hero">
             <div class="counter">
@@ -41,7 +41,7 @@
                 <label class="counter-amount -preload" gs-total>$0</label>
                 <a class="button -blue" href="#donate">Donate</a>
             </div>
-            <img class="header-hero-image" src="img/hero.png" srcset="img/hero.png 1x, img/hero@2x.png 2x"
+            <img class="header-hero-image" src="assets/img/hero.png" srcset="assets/img/hero.png 1x, img/hero@2x.png 2x"
                 alt="A food delivery worker holding a stack of takeout containers" />
         </div>
     </header>
@@ -68,7 +68,7 @@
                         Harrisburg Hospital and UPMC Pinnacle Community Osteopathic.</p>
                 </div>
                 <div class="process-diagram">
-                    <img src="img/process.png" srcset="img/process.png 1x, img/process@2x.png 2x"
+                    <img src="assets/img/process.png" srcset="assets/img/process.png 1x, img/process@2x.png 2x"
                         alt="How it works: Donate, Prepare, Deliver, Feed" />
                 </div>
             </div>
@@ -96,20 +96,20 @@
     <footer class="footer">
         <div class="footer-wrapper">
             <div class="footer-column footer-logo">
-                <img src="img/footer-logo.png" srcset="img/footer-logo.png 1x, img/footer-logo@2x.png 2x"
+                <img src="assets/img/footer-logo.png" srcset="assets/img/footer-logo.png 1x, img/footer-logo@2x.png 2x"
                     alt="Grub for Scrubs' Logo" />
             </div>
             <div class="footer-column footer-builtBy">
                 <h3>Built By</h3>
-                <img src="img/logo-andculture.png" srcset="img/logo-andculture.png 1x, img/logo-andculture@2x.png 2x"
-                    alt="Andculture's Logo" />
-                <img src="img/logo-catamaran.png" srcset="img/logo-catamaran.png 1x, img/logo-catamaran@2x.png 2x"
-                    alt="Catamaran's Logo" />
+                <img src="assets/img/logo-andculture.png"
+                    srcset="assets/img/logo-andculture.png 1x, img/logo-andculture@2x.png 2x" alt="Andculture's Logo" />
+                <img src="assets/img/logo-catamaran.png"
+                    srcset="assets/img/logo-catamaran.png 1x, img/logo-catamaran@2x.png 2x" alt="Catamaran's Logo" />
             </div>
             <div class="footer-column footer-poweredBy">
                 <h3>Powered By</h3>
-                <img src="img/logo-pledgeit.png" srcset="img/logo-pledgeit.png 1x, img/logo-pledgeit@2x.png 2x"
-                    alt="Pledgeit's Logo" />
+                <img src="assets/img/logo-pledgeit.png"
+                    srcset="assets/img/logo-pledgeit.png 1x, img/logo-pledgeit@2x.png 2x" alt="Pledgeit's Logo" />
             </div>
             <div class="footer-column footer-contact">
                 <a class="typeform-share" href="https://webusersurvey.typeform.com/to/wEhwkV" data-mode="drawer_right"
@@ -125,7 +125,7 @@
     </footer>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.6/handlebars.runtime.min.js"></script>
-    <script src="app.js"></script>
+    <script src="assets/app.min.js"></script>
     <script> (function () { var qs, js, q, s, d = document, gi = d.getElementById, ce = d.createElement, gt = d.getElementsByTagName, id = "typef_orm_share", b = "https://embed.typeform.com/"; if (!gi.call(d, id)) { js = ce.call(d, "script"); js.id = id; js.src = b + "embed.js"; q = gt.call(d, "script")[0]; q.parentNode.insertBefore(js, q) } })() </script>
 </body>
 
