@@ -91,6 +91,10 @@
         background-color: $blue;
         z-index: 1;
 
+        &.-noFill {
+            background-color: transparent;
+        }
+
         @media only screen and (max-width: 1000px) {
             height: 16em;
             overflow: hidden;

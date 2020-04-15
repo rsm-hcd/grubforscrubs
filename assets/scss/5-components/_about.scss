@@ -1,0 +1,40 @@
+.about {
+    a {
+        font-weight: bold;
+        color: $blue;
+        transition: color .16s ease-in-out;
+
+        &:hover {
+            color: darken($blue, 15%);
+        }
+    }
+
+    main {
+        margin: 4em 1em;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    
+        section {
+            max-width: 40em;
+    
+            h2 {
+                color: $blue;
+                margin-bottom: 1rem;
+            }
+    
+            h3 {
+                color: $darkGrey;
+                margin: 2rem 0 1rem;
+            }
+    
+            p {
+                margin-bottom: 1rem;
+            }
+    
+            & + section {
+                margin-top: 2em;
+            }
+        }
+    }
+}
