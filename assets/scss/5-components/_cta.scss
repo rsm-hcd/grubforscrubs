@@ -4,31 +4,92 @@
     &-wrapper {
         display: flex;
         flex-direction: column;
-        align-items: center;
+        align-items: stretch;
         justify-content: space-between;
         max-width: 64em;
         margin: 0 auto;
-        text-align: center;
-        background-color: $blue;
-        padding: 2em;
-        border-radius: $border-radius;
+        
 
         @media only screen and (min-width: 1000px) {
-            padding: 4em;
             flex-direction: row;
-            text-align: left;
         }
     }
 
-    p {
-        color: white;
-        font-size: 1.5rem;
-        line-height: 1.4;
-    }
+    &-col {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        text-align: center;
+        padding: 4rem 2rem 2rem;
+        border-radius: $border-radius;
 
-    .button {
-        @media only screen and (max-width: 1000px) {
+        &:first-of-type {
+            background-color: $red;
+        }
+
+        &:last-of-type {
+            background-color: $blue;
+            margin: 2em 0 0 0;
+        }
+
+        @media only screen and (min-width: 1000px) {
+            width: 50%;
+
+            &:first-of-type {
+                margin: 0 .5em 0 0;
+            }
+
+            &:last-of-type {
+                margin: 0 0 0 .5em;
+            }
+        }
+
+        & > p {
+            color: white;
+            font-size: 1.5rem;
+            line-height: 1.4;
+            text-align: center;
+            margin: 0 auto;
+            flex-grow: 1;
+
+            @media only screen and (min-width: 1000px) {
+                max-width: 14em;
+            }
+        }
+
+        .cta-status {
+            color: white;
+            text-align: center;
+            margin: 2em 0;
+
+            @media only screen and (min-width: 1000px) {
+                margin-top: 3em 0;
+            }
+
+            label {
+                font-size: 1em;
+                letter-spacing: .1em;
+                text-transform: uppercase;
+                font-family: $brandFont;
+            }
+
+            p {
+                color: white;
+                text-transform: uppercase;
+                font-family: $bodyFont;
+                font-size: 36px;
+                font-weight: bold;
+                letter-spacing: .1em;
+            }
+        }
+
+        .button {
             margin-top: 1.5em;
+
+            &:hover {
+                background-color: darken(white, 5%);
+                color: $red;
+            }
         }
     }
 }

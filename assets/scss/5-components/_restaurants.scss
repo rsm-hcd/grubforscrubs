@@ -8,6 +8,85 @@
         max-width: 65em;
         margin: 0 auto;
     }
+
+    &-sectionHeader {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        max-width: 65em;
+        margin: 10em auto 4em;
+
+        @media only screen and (min-width: 1000px) {
+            flex-direction: row;
+            align-items: flex-end;
+        }
+
+        &-text {
+            text-align: center;
+
+            @media only screen and (min-width: 1000px) {
+                text-align: left;
+            }
+
+            h3 {
+                color: $red;
+                font-family: $brandFont;
+                font-size: 2em;
+                margin-bottom: 2rem;
+            }
+
+            p {
+                
+                max-width: 24em;
+            }
+            
+        }
+
+        &-milestone {
+            display: flex;
+            flex-direction: row-reverse;
+            justify-content: flex-end;
+            margin: 2em 0 0 0;
+
+            @media only screen and (min-width: 1000px) {
+                margin: 0 0 0 2em;
+                flex-direction: row;
+                text-align: right;
+            }
+
+            label {
+                color: $blue;
+                font-family: $brandFont;
+                font-size: 1.5em;
+                text-transform: uppercase;
+            }
+
+            p {
+                color: $red;
+                font-family: $brandFont;
+                font-size: 2em;
+                text-transform: uppercase;
+            }
+
+            &-icon {
+                width: 4em;
+                height: 4em;
+                margin:  0 1em 0 0;
+
+                @media only screen and (min-width: 1000px) {
+                    margin: 0 0 0 1em;
+                }
+
+                img {
+                    width: 100%;
+                }
+            }
+
+            
+        }
+    }
 }
 
 .restaurant {

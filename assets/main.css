@@ -177,26 +177,66 @@ p {
   .cta-wrapper {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: stretch;
     justify-content: space-between;
     max-width: 64em;
-    margin: 0 auto;
-    text-align: center;
-    background-color: #3eb9d9;
-    padding: 2em;
-    border-radius: 0.5rem; }
+    margin: 0 auto; }
     @media only screen and (min-width: 1000px) {
       .cta-wrapper {
-        padding: 4em;
-        flex-direction: row;
-        text-align: left; } }
-  .cta p {
-    color: white;
-    font-size: 1.5rem;
-    line-height: 1.4; }
-  @media only screen and (max-width: 1000px) {
-    .cta .button {
-      margin-top: 1.5em; } }
+        flex-direction: row; } }
+  .cta-col {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    text-align: center;
+    padding: 4rem 2rem 2rem;
+    border-radius: 0.5rem; }
+    .cta-col:first-of-type {
+      background-color: #fa5356; }
+    .cta-col:last-of-type {
+      background-color: #3eb9d9;
+      margin: 2em 0 0 0; }
+    @media only screen and (min-width: 1000px) {
+      .cta-col {
+        width: 50%; }
+        .cta-col:first-of-type {
+          margin: 0 .5em 0 0; }
+        .cta-col:last-of-type {
+          margin: 0 0 0 .5em; } }
+    .cta-col > p {
+      color: white;
+      font-size: 1.5rem;
+      line-height: 1.4;
+      text-align: center;
+      margin: 0 auto;
+      flex-grow: 1; }
+      @media only screen and (min-width: 1000px) {
+        .cta-col > p {
+          max-width: 14em; } }
+    .cta-col .cta-status {
+      color: white;
+      text-align: center;
+      margin: 2em 0; }
+      @media only screen and (min-width: 1000px) {
+        .cta-col .cta-status {
+          margin-top: 3em 0; } }
+      .cta-col .cta-status label {
+        font-size: 1em;
+        letter-spacing: .1em;
+        text-transform: uppercase;
+        font-family: "trumpsoftpro", sans-serif; }
+      .cta-col .cta-status p {
+        color: white;
+        text-transform: uppercase;
+        font-family: "Source Sans Pro", sans-serif;
+        font-size: 36px;
+        font-weight: bold;
+        letter-spacing: .1em; }
+    .cta-col .button {
+      margin-top: 1.5em; }
+      .cta-col .button:hover {
+        background-color: #f2f2f2;
+        color: #fa5356; }
 
 .footer {
   margin-top: 6em;
@@ -226,6 +266,8 @@ p {
     text-decoration: underline; }
     .footer a:hover {
       color: #c2c4c6; }
+    .footer a + a {
+      margin-top: 1em; }
   .footer-wrapper {
     display: flex;
     flex-direction: row;
@@ -441,7 +483,7 @@ p {
     .process p a {
       color: white; }
       .process p a:hover {
-        color: #c2c4c6; }
+        color: #4a4c4d; }
   .process-diagram img {
     width: 100%; }
 
@@ -453,6 +495,59 @@ p {
     flex-wrap: wrap;
     max-width: 65em;
     margin: 0 auto; }
+  .restaurants-sectionHeader {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 65em;
+    margin: 10em auto 4em; }
+    @media only screen and (min-width: 1000px) {
+      .restaurants-sectionHeader {
+        flex-direction: row;
+        align-items: flex-end; } }
+    .restaurants-sectionHeader-text {
+      text-align: center; }
+      @media only screen and (min-width: 1000px) {
+        .restaurants-sectionHeader-text {
+          text-align: left; } }
+      .restaurants-sectionHeader-text h3 {
+        color: #fa5356;
+        font-family: "trumpsoftpro", sans-serif;
+        font-size: 2em;
+        margin-bottom: 2rem; }
+      .restaurants-sectionHeader-text p {
+        max-width: 24em; }
+    .restaurants-sectionHeader-milestone {
+      display: flex;
+      flex-direction: row-reverse;
+      justify-content: flex-end;
+      margin: 2em 0 0 0; }
+      @media only screen and (min-width: 1000px) {
+        .restaurants-sectionHeader-milestone {
+          margin: 0 0 0 2em;
+          flex-direction: row;
+          text-align: right; } }
+      .restaurants-sectionHeader-milestone label {
+        color: #3eb9d9;
+        font-family: "trumpsoftpro", sans-serif;
+        font-size: 1.5em;
+        text-transform: uppercase; }
+      .restaurants-sectionHeader-milestone p {
+        color: #fa5356;
+        font-family: "trumpsoftpro", sans-serif;
+        font-size: 2em;
+        text-transform: uppercase; }
+      .restaurants-sectionHeader-milestone-icon {
+        width: 4em;
+        height: 4em;
+        margin: 0 1em 0 0; }
+        @media only screen and (min-width: 1000px) {
+          .restaurants-sectionHeader-milestone-icon {
+            margin: 0 0 0 1em; } }
+        .restaurants-sectionHeader-milestone-icon img {
+          width: 100%; }
 
 .restaurant {
   border-radius: 0.5rem;
