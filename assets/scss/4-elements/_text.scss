@@ -5,6 +5,14 @@ h2 {
     letter-spacing: .2rem;
 }
 
+h3 {
+    font-size: 1.25em;
+    font-family: $brandFont;
+    text-transform: uppercase;
+    letter-spacing: .1rem;
+    line-height: 1.2;
+}
+
 p {
     font-size: 1em;;
     color: $darkGrey;

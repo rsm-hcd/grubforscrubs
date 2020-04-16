@@ -68,10 +68,41 @@ h2 {
   text-transform: uppercase;
   letter-spacing: .2rem; }
 
+h3 {
+  font-size: 1.25em;
+  font-family: "trumpsoftpro", sans-serif;
+  text-transform: uppercase;
+  letter-spacing: .1rem;
+  line-height: 1.2; }
+
 p {
   font-size: 1em;
   color: #4a4c4d;
   line-height: 1.6; }
+
+.about a {
+  font-weight: bold;
+  color: #3eb9d9;
+  transition: color .16s ease-in-out; }
+  .about a:hover {
+    color: #218da9; }
+.about main {
+  margin: 4em 1em;
+  display: flex;
+  align-items: center;
+  flex-direction: column; }
+  .about main section {
+    max-width: 40em; }
+    .about main section h2 {
+      color: #3eb9d9;
+      margin-bottom: 1rem; }
+    .about main section h3 {
+      color: #4a4c4d;
+      margin: 2rem 0 1rem; }
+    .about main section p {
+      margin-bottom: 1rem; }
+    .about main section + section {
+      margin-top: 2em; }
 
 .callout {
   margin: 10em 4vw 0;
@@ -309,6 +340,8 @@ p {
     position: relative;
     background-color: #3eb9d9;
     z-index: 1; }
+    .header-hero.-noFill {
+      background-color: transparent; }
     @media only screen and (max-width: 1000px) {
       .header-hero {
         height: 16em;
@@ -346,6 +379,33 @@ p {
       @media only screen and (min-width: 1000px) {
         .header-hero .counter {
           margin-top: 2rem; } }
+
+.pageHeader {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 0 auto;
+  padding: 0 1rem;
+  max-width: 42rem; }
+  @media only screen and (min-width: 1000px) {
+    .pageHeader {
+      align-items: center; } }
+  .pageHeader-logo {
+    margin: 2rem 0; }
+  .pageHeader-title {
+    font-family: "trumpsoftpro", sans-serif;
+    font-size: 5rem;
+    color: #fa5356;
+    line-height: 1;
+    text-transform: uppercase;
+    letter-spacing: .3rem;
+    margin-top: 1rem; }
+    .pageHeader-title span {
+      display: block; }
+    .pageHeader-title-accent {
+      color: #fa5356;
+      font-size: 2.5rem;
+      margin: .25rem 0; }
 
 .process {
   margin: 10em 4vw 0; }
