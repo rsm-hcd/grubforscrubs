@@ -117,7 +117,6 @@ grubforscrubs.views.MainView = (function () {
 
     MainView.prototype = {
         _$stats: null,
-        _$restaurants: null,
         _leaderboardService: null,
 
         // --------------------------------------------
@@ -126,7 +125,6 @@ grubforscrubs.views.MainView = (function () {
 
         _initialize: function () {
             this._$stats = $('[gs-total]');
-            this._$restaurants = $('[gs-restaurants]');
 
             this._leaderboardService = new services.LeaderboardService();
 
@@ -143,7 +141,7 @@ grubforscrubs.views.MainView = (function () {
             this._leaderboardService.getTemplate("grub-for-scrubs-hbg", {
                 onSuccess: $.proxy(function (response) {
                     this._$stats
-                        .text("$" + response.amountRaised)
+                        .text("$" + response.amountRaised.substring(0, (response.amountRaised.indexOf('.'))))
                         .removeClass("-preload");
                 }, this)
             })
@@ -151,12 +149,12 @@ grubforscrubs.views.MainView = (function () {
 
         _getRestaurants: function () {
 
-            this._$restaurants.find("[gs-slug]").each($.proxy(function (index, restaurant) {
+            $("[gs-slug]").each($.proxy(function (index, restaurant) {
                 this._leaderboardService.getCampaign(restaurant.getAttribute("gs-slug"), {
                     onSuccess: function (response) {
                         $target = $(restaurant);
                         $target.find("[gs-amount]")
-                            .text("$" + response.amountRaised)
+                            .text("$" + response.amountRaised.substring(0, (response.amountRaised.indexOf('.'))))
                             .removeClass("-preload");
 
                         $target.find("[gs-donate]")
