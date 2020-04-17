@@ -173,7 +173,7 @@ p {
       min-width: 8em; } }
 
 .cta {
-  margin: 5em 4vw 0; }
+  margin: 10em 4vw 0; }
   .cta-wrapper {
     display: flex;
     flex-direction: column;
