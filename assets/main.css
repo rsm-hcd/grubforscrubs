@@ -549,24 +549,74 @@ p {
 .restaurants-sort {
   display: flex;
   flex-direction: column;
+  flex-shrink: 1;
   justify-content: space-between;
-  align-items: left;
+  align-items: center;
   width: 100%;
   max-width: 65em;
   margin: 5em auto 4em; }
-  .restaurants-sort label {
+  @media only screen and (min-width: 1000px) {
+    .restaurants-sort {
+      align-items: flex-start; } }
+  .restaurants-sort form {
+    width: 100%; }
+  .restaurants-sort label > span {
     color: #3eb9d9;
-    font-weight: bold; }
+    font-family: "trumpsoftpro", sans-serif;
+    font-weight: bold;
+    letter-spacing: .2em;
+    line-height: 2.5rem;
+    vertical-align: top; }
   .restaurants-sort select {
     display: none; }
-  .restaurants-sort .selectize-control {
+  .restaurants-sort .selectize-control.single {
     display: inline-block;
-    width: 24em; }
-  .restaurants-sort .selectize-input {
-    border: none;
-    background: none;
-    box-shadow: none;
-    display: inline-block; }
+    width: 18em; }
+    @media only screen and (max-width: 410px) {
+      .restaurants-sort .selectize-control.single {
+        width: calc(100% - 60px); } }
+    .restaurants-sort .selectize-control.single .selectize-input {
+      border-radius: 0.5rem;
+      border: 0.125em solid #3eb9d9;
+      background: none;
+      box-shadow: none;
+      display: inline-block;
+      padding-top: 10px; }
+      .restaurants-sort .selectize-control.single .selectize-input:after {
+        border: solid #fa5356;
+        border-width: 0 3px 3px 0;
+        display: inline-block;
+        padding: 3px;
+        margin-top: -6px;
+        transform: rotate(45deg);
+        -webkit-transform: rotate(45deg); }
+      .restaurants-sort .selectize-control.single .selectize-input.dropdown-active {
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0; }
+        .restaurants-sort .selectize-control.single .selectize-input.dropdown-active:before {
+          content: none; }
+        .restaurants-sort .selectize-control.single .selectize-input.dropdown-active:after {
+          transform: rotate(-135deg);
+          -webkit-transform: rotate(-135deg); }
+      .restaurants-sort .selectize-control.single .selectize-input .item {
+        color: #3eb9d9;
+        font-size: 1.125rem; }
+  .restaurants-sort .selectize-dropdown.single {
+    border: 0.125em solid #3eb9d9;
+    border-radius: 0.5rem;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    border-top: none;
+    margin-top: -2px;
+    box-shadow: none; }
+    .restaurants-sort .selectize-dropdown.single .option {
+      background-color: unset;
+      color: #3eb9d9;
+      cursor: pointer;
+      font-size: 1.125rem;
+      line-height: 1.75rem; }
+      .restaurants-sort .selectize-dropdown.single .option:hover {
+        color: #218da9; }
 
 .restaurant {
   border-radius: 0.5rem;
@@ -634,6 +684,10 @@ p {
     height: calc(100% - 0.25em);
     text-decoration: none;
     text-transform: uppercase; }
+    @media only screen and (max-width: 400px) {
+      .tabs .tab {
+        font-size: 0.8rem;
+        line-height: 3.8em; } }
     .tabs .tab:hover {
       text-decoration: underline; }
     .tabs .tab.-selected {

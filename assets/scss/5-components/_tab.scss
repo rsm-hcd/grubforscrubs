@@ -24,6 +24,11 @@
         text-decoration: none;
         text-transform: uppercase;
 
+        @media only screen and (max-width: 400px) {
+            font-size: 0.8rem;
+            line-height: 3.8em;
+        }
+
         &:hover {
             text-decoration: underline;
         }
