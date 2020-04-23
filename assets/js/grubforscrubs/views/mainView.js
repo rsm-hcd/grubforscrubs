@@ -19,9 +19,11 @@ grubforscrubs.views.MainView = (function () {
 
             this._leaderboardService = new services.LeaderboardService();
 
+            this._sortRestaurants();
+
             // Retrieve all leaderboards via the API
             this._getStats();
-            this._getRestaurants()
+            this._getRestaurants();
         },
 
         // --------------------------------------------
@@ -54,6 +56,18 @@ grubforscrubs.views.MainView = (function () {
                     }
                 });
             }, this))
+        },
+
+        _sortRestaurants: function () {
+            $("[gs-restaurants]").each($.proxy(function (index, list) {
+                $list = $(list);
+                var restaurantNames = $list.find("[gs-name]").map(function (index, restaurant) {
+                    return restaurant.getAttribute("gs-name");
+                });
+                $list.reOrder(restaurantNames.sort());
+                $list
+                    .removeClass("-preload");
+            }))
         },
 
         // --------------------------------------------
