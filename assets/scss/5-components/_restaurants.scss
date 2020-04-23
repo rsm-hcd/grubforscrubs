@@ -1,6 +1,4 @@
 .restaurants {
-    margin: 4em calc(4vw - .5em) 0;
-
     ul {
         display: flex;
         flex-direction: row;
@@ -16,7 +14,7 @@
         align-items: center;
         width: 100%;
         max-width: 65em;
-        margin: 10em auto 4em;
+        margin: 5em auto 4em;
 
         @media only screen and (min-width: 1000px) {
             flex-direction: row;
@@ -38,10 +36,10 @@
             }
 
             p {
-                
+
                 max-width: 24em;
             }
-            
+
         }
 
         &-milestone {
@@ -84,7 +82,7 @@
                 }
             }
 
-            
+
         }
     }
 }

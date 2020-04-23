@@ -487,67 +487,65 @@ p {
   .process-diagram img {
     width: 100%; }
 
-.restaurants {
-  margin: 4em calc(4vw - .5em) 0; }
-  .restaurants ul {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    max-width: 65em;
-    margin: 0 auto; }
-  .restaurants-sectionHeader {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    max-width: 65em;
-    margin: 10em auto 4em; }
+.restaurants ul {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  max-width: 65em;
+  margin: 0 auto; }
+.restaurants-sectionHeader {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 65em;
+  margin: 5em auto 4em; }
+  @media only screen and (min-width: 1000px) {
+    .restaurants-sectionHeader {
+      flex-direction: row;
+      align-items: flex-end; } }
+  .restaurants-sectionHeader-text {
+    text-align: center; }
     @media only screen and (min-width: 1000px) {
-      .restaurants-sectionHeader {
+      .restaurants-sectionHeader-text {
+        text-align: left; } }
+    .restaurants-sectionHeader-text h3 {
+      color: #fa5356;
+      font-family: "trumpsoftpro", sans-serif;
+      font-size: 2em;
+      margin-bottom: 2rem; }
+    .restaurants-sectionHeader-text p {
+      max-width: 24em; }
+  .restaurants-sectionHeader-milestone {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    margin: 2em 0 0 0; }
+    @media only screen and (min-width: 1000px) {
+      .restaurants-sectionHeader-milestone {
+        margin: 0 0 0 2em;
         flex-direction: row;
-        align-items: flex-end; } }
-    .restaurants-sectionHeader-text {
-      text-align: center; }
+        text-align: right; } }
+    .restaurants-sectionHeader-milestone label {
+      color: #3eb9d9;
+      font-family: "trumpsoftpro", sans-serif;
+      font-size: 1.5em;
+      text-transform: uppercase; }
+    .restaurants-sectionHeader-milestone p {
+      color: #fa5356;
+      font-family: "trumpsoftpro", sans-serif;
+      font-size: 2em;
+      text-transform: uppercase; }
+    .restaurants-sectionHeader-milestone-icon {
+      width: 4em;
+      height: 4em;
+      margin: 0 1em 0 0; }
       @media only screen and (min-width: 1000px) {
-        .restaurants-sectionHeader-text {
-          text-align: left; } }
-      .restaurants-sectionHeader-text h3 {
-        color: #fa5356;
-        font-family: "trumpsoftpro", sans-serif;
-        font-size: 2em;
-        margin-bottom: 2rem; }
-      .restaurants-sectionHeader-text p {
-        max-width: 24em; }
-    .restaurants-sectionHeader-milestone {
-      display: flex;
-      flex-direction: row-reverse;
-      justify-content: flex-end;
-      margin: 2em 0 0 0; }
-      @media only screen and (min-width: 1000px) {
-        .restaurants-sectionHeader-milestone {
-          margin: 0 0 0 2em;
-          flex-direction: row;
-          text-align: right; } }
-      .restaurants-sectionHeader-milestone label {
-        color: #3eb9d9;
-        font-family: "trumpsoftpro", sans-serif;
-        font-size: 1.5em;
-        text-transform: uppercase; }
-      .restaurants-sectionHeader-milestone p {
-        color: #fa5356;
-        font-family: "trumpsoftpro", sans-serif;
-        font-size: 2em;
-        text-transform: uppercase; }
-      .restaurants-sectionHeader-milestone-icon {
-        width: 4em;
-        height: 4em;
-        margin: 0 1em 0 0; }
-        @media only screen and (min-width: 1000px) {
-          .restaurants-sectionHeader-milestone-icon {
-            margin: 0 0 0 1em; } }
-        .restaurants-sectionHeader-milestone-icon img {
-          width: 100%; }
+        .restaurants-sectionHeader-milestone-icon {
+          margin: 0 0 0 1em; } }
+      .restaurants-sectionHeader-milestone-icon img {
+        width: 100%; }
 
 .restaurant {
   border-radius: 0.5rem;
@@ -592,5 +590,37 @@ p {
     font-weight: bold; }
   .restaurant .button {
     margin-top: 1.5em; }
+
+.tabs {
+  margin: 8em calc(4vw - .5em) 0; }
+  .tabs .tabs-wrapper {
+    width: 100%;
+    height: 3.5em;
+    max-width: 64em;
+    margin: 0 auto;
+    text-align: center;
+    border-radius: 0.5rem;
+    border: 0.125em solid #3eb9d9; }
+  .tabs .tab {
+    margin: 0.125em;
+    color: #3eb9d9;
+    border-radius: .3rem;
+    display: inline-block;
+    font-size: 1.125rem;
+    font-weight: bold;
+    line-height: 2.5em;
+    width: calc(50% - 0.375em);
+    height: calc(100% - 0.25em);
+    text-decoration: none;
+    text-transform: uppercase; }
+    .tabs .tab:hover {
+      text-decoration: underline; }
+    .tabs .tab.-selected {
+      background: #3eb9d9;
+      color: white; }
+  .tabs .tab-panel {
+    display: none; }
+    .tabs .tab-panel.-selected {
+      display: block; }
 
 /*# sourceMappingURL=main.css.map */

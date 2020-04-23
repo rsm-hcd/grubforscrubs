@@ -4,10 +4,12 @@ var views = grubforscrubs.views;
 grubforscrubs.views.MainView = (function () {
     function MainView() {
         this._initialize();
+        this._attachEvents();
     }
 
     MainView.prototype = {
         _$stats: null,
+        _$tabpanels: null,
         _leaderboardService: null,
 
         // --------------------------------------------
@@ -16,6 +18,7 @@ grubforscrubs.views.MainView = (function () {
 
         _initialize: function () {
             this._$stats = $('[gs-total]');
+            this._$tabpanels = $('[role="tabpanel"]');
 
             this._leaderboardService = new services.LeaderboardService();
 
@@ -24,6 +27,10 @@ grubforscrubs.views.MainView = (function () {
             // Retrieve all leaderboards via the API
             this._getStats();
             this._getRestaurants();
+        },
+
+        _attachEvents: function () {
+            $('[role="tablist"]').on('click', 'a', $.proxy(this._handleTabClick, this));
         },
 
         // --------------------------------------------
@@ -84,6 +91,24 @@ grubforscrubs.views.MainView = (function () {
             $target
                 .text("$" + response.amountRaised)
                 .removeClass("-preload");
+        },
+
+        _handleTabClick: function (event) {
+            event.preventDefault()
+            $target = $(event.currentTarget)
+            $target
+                .attr('aria-selected', true)
+                .addClass('-selected');
+            $siblings = $target.siblings()
+            $siblings
+                .attr('aria-selected', false)
+                .removeClass('-selected');
+            this._$tabpanels.filter(function (index, panel) {
+                return $(panel).hasClass('-selected')
+            }).removeClass('-selected');
+            this._$tabpanels.filter(function (index, panel) {
+                return ('#' + panel.id) === $target.attr('href')
+            }).addClass('-selected');
         }
     };
 
