@@ -6,6 +6,8 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Grub for Scrubs</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/css/selectize.default.min.css"
+        rel="stylesheet">
     <link href="assets/main.min.css?q=3" rel="stylesheet">
     <link rel="icon" type="image/png" href="assets/img/favicon.png" sizes="16x16">
     <link rel="icon" type="image/png" href="assets/img/favicon32.png" sizes="32x32">
@@ -119,6 +121,18 @@
                                 alt="A party icon" />
                         </div>
                     </div>
+                </div>
+                <div class="restaurants-sort">
+                    <form>
+                        <label>
+                            SORT:
+                            <select name="sort" selectize>
+                                <option value="alpha">Alphabetically</option>
+                                <option value="high">Amount Raised (High to Low)</option>
+                                <option value="low">Amount Raised (Low to High)</option>
+                            </select>
+                        </label>
+                    </form>
                 </div>
                 <ul class="-preload" gs-restaurants>
                     <li class="restaurant" gs-slug="aleco-s-cafe-restaurant-grub-for-scrubs-hbg"
@@ -419,6 +433,18 @@
                         </div>
                     </div>
                 </div>
+                <div class="restaurants-sort">
+                    <form>
+                        <label>
+                            SORT:
+                            <select name="sort" selectize>
+                                <option value="alpha">Alphabetically</option>
+                                <option value="high">Amount Raised (High to Low)</option>
+                                <option value="low">Amount Raised (Low to High)</option>
+                            </select>
+                        </label>
+                    </form>
+                </div>
                 <ul class="-preload" gs-restaurants>
                     <li class="restaurant" gs-slug="elementary-coffee-co-grub-for-scrubs-hbg"
                         gs-name="Elementary Coffee">
@@ -552,8 +578,8 @@
         </div>
     </footer>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.6/handlebars.runtime.min.js"></script>
-    <script src="assets/app.min.js?q=3"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/js/standalone/selectize.min.js"></script>
+    <script src="assets/app.js?q=3"></script>
     <script> (function () { var qs, js, q, s, d = document, gi = d.getElementById, ce = d.createElement, gt = d.getElementsByTagName, id = "typef_orm_share", b = "https://embed.typeform.com/"; if (!gi.call(d, id)) { js = ce.call(d, "script"); js.id = id; js.src = b + "embed.js"; q = gt.call(d, "script")[0]; q.parentNode.insertBefore(js, q) } })() </script>
 </body>
 

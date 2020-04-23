@@ -85,6 +85,37 @@
 
         }
     }
+
+    &-sort {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: left;
+        width: 100%;
+        max-width: 65em;
+        margin: 5em auto 4em;
+
+        label {
+            color: $blue;
+            font-weight: bold;
+        }
+
+        select {
+            display: none;
+        }
+
+        .selectize-control {
+            display: inline-block;
+            width: 24em;
+        }
+
+        .selectize-input {
+            border: none;
+            background: none;
+            box-shadow: none;
+            display: inline-block;
+        }
+    }
 }
 
 .restaurant {

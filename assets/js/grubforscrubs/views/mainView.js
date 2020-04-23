@@ -27,6 +27,19 @@ grubforscrubs.views.MainView = (function () {
             // Retrieve all leaderboards via the API
             this._getStats();
             this._getRestaurants();
+
+            // Set up selectize
+            if (window.Selectize) {
+                $('select[selectize]').each($.proxy(function (index, select) {
+                    $select = $(select)
+                    $select.selectize({
+                        onChange: $.proxy(function (sort) {
+                            this._handleSortChange(sort, $select)
+                        }, this)
+                    });
+                }, this));
+            }
+
         },
 
         _attachEvents: function () {
@@ -65,16 +78,45 @@ grubforscrubs.views.MainView = (function () {
             }, this))
         },
 
+        _getSort: function (sort, $list) {
+            var items = $list.find("[gs-name]").map(function (index, restaurant) {
+                return {
+                    amount: parseFloat($(restaurant).find('[gs-amount]').text().replace(/[,\$]/g, '')),
+                    name: restaurant.getAttribute("gs-name")
+                }
+            });
+
+            items.sort(function (a, b) {
+                var x = a.name.toLowerCase();
+                var y = b.name.toLowerCase();
+                return x < y ? -1 : x > y ? 1 : 0;
+            });
+
+            switch (sort) {
+                case "high":
+                    items.sort(function (a, b) {
+                        return b.amount - a.amount;
+                    });
+                    break;
+                case "low":
+                    items.sort(function (a, b) {
+                        return a.amount - b.amount;
+                    });
+                    break;
+            }
+
+            return items.map(function (i, r) {
+                return r.name;
+            });
+        },
+
         _sortRestaurants: function () {
             $("[gs-restaurants]").each($.proxy(function (index, list) {
                 $list = $(list);
-                var restaurantNames = $list.find("[gs-name]").map(function (index, restaurant) {
-                    return restaurant.getAttribute("gs-name");
-                });
-                $list.reOrder(restaurantNames.sort());
+                $list.reOrder(this._getSort('alpha', $list));
                 $list
                     .removeClass("-preload");
-            }))
+            }, this));
         },
 
         // --------------------------------------------
@@ -91,6 +133,11 @@ grubforscrubs.views.MainView = (function () {
             $target
                 .text("$" + response.amountRaised)
                 .removeClass("-preload");
+        },
+
+        _handleSortChange: function (sort, $target) {
+            $list = $target.closest("section").find("[gs-restaurants]");
+            $list.reOrder(this._getSort(sort, $list));
         },
 
         _handleTabClick: function (event) {

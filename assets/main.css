@@ -546,6 +546,27 @@ p {
           margin: 0 0 0 1em; } }
       .restaurants-sectionHeader-milestone-icon img {
         width: 100%; }
+.restaurants-sort {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: left;
+  width: 100%;
+  max-width: 65em;
+  margin: 5em auto 4em; }
+  .restaurants-sort label {
+    color: #3eb9d9;
+    font-weight: bold; }
+  .restaurants-sort select {
+    display: none; }
+  .restaurants-sort .selectize-control {
+    display: inline-block;
+    width: 24em; }
+  .restaurants-sort .selectize-input {
+    border: none;
+    background: none;
+    box-shadow: none;
+    display: inline-block; }
 
 .restaurant {
   border-radius: 0.5rem;
