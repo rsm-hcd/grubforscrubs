@@ -31,11 +31,8 @@ grubforscrubs.views.MainView = (function () {
             // Set up selectize
             if (window.Selectize) {
                 $('select[selectize]').each($.proxy(function (index, select) {
-                    $select = $(select)
-                    $select.selectize({
-                        onChange: $.proxy(function (sort) {
-                            this._handleSortChange(sort, $select)
-                        }, this)
+                    $(select).selectize({
+                        onChange: $.proxy(this._handleSortChange, this, select)
                     });
                 }, this));
             }
@@ -135,8 +132,8 @@ grubforscrubs.views.MainView = (function () {
                 .removeClass("-preload");
         },
 
-        _handleSortChange: function (sort, $target) {
-            $list = $target.closest("section").find("[gs-restaurants]");
+        _handleSortChange: function (target, sort) {
+            $list = $(target).closest("section").find("[gs-restaurants]");
             $list.reOrder(this._getSort(sort, $list));
         },
 
