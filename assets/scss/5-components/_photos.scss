@@ -1,0 +1,56 @@
+.photos {
+    margin: 0 4vw;
+
+    ul {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        max-width: 65em;
+        margin: 0 auto;
+    }
+
+    &-sectionHeader {
+        width: 100%;
+        max-width: 64em;
+        margin: 8em auto 1em;
+
+        @media only screen and (min-width: 1000px) {
+            flex-direction: row;
+            align-items: flex-end;
+        }
+
+        &-text {
+            text-align: center;
+
+            @media only screen and (min-width: 1000px) {
+                text-align: left;
+            }
+
+            h3 {
+                color: $red;
+                font-family: $brandFont;
+                font-size: 2em;
+                margin-bottom: 1rem;
+            }
+
+        }
+    }
+}
+
+.photo {
+    border-radius: $border-radius;
+    padding: .5em;
+    width: 50%;
+    text-align: left;
+    color: $darkGrey;
+
+
+    @media only screen and (min-width: 700px) {
+        display: inline-block;
+        width: 25%;
+    }
+
+    img {
+        width: 100%;
+    }
+}

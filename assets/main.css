@@ -512,6 +512,46 @@ p {
       font-size: 2.5rem;
       margin: .25rem 0; }
 
+.photos {
+  margin: 0 4vw; }
+  .photos ul {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    max-width: 65em;
+    margin: 0 auto; }
+  .photos-sectionHeader {
+    width: 100%;
+    max-width: 64em;
+    margin: 8em auto 1em; }
+    @media only screen and (min-width: 1000px) {
+      .photos-sectionHeader {
+        flex-direction: row;
+        align-items: flex-end; } }
+    .photos-sectionHeader-text {
+      text-align: center; }
+      @media only screen and (min-width: 1000px) {
+        .photos-sectionHeader-text {
+          text-align: left; } }
+      .photos-sectionHeader-text h3 {
+        color: #fa5356;
+        font-family: "trumpsoftpro", sans-serif;
+        font-size: 2em;
+        margin-bottom: 1rem; }
+
+.photo {
+  border-radius: 0.5rem;
+  padding: .5em;
+  width: 50%;
+  text-align: left;
+  color: #4a4c4d; }
+  @media only screen and (min-width: 700px) {
+    .photo {
+      display: inline-block;
+      width: 25%; } }
+  .photo img {
+    width: 100%; }
+
 .process {
   margin: 10em 4vw 0; }
   @media only screen and (max-width: 1000px) {
