@@ -286,7 +286,8 @@ p {
     @media only screen and (min-width: 700px) {
       .delivery > div {
         display: inline-block;
-        width: calc(25% - .25em); } }
+        width: calc(25% - .25em);
+        vertical-align: top; } }
   .delivery.-header {
     border-color: transparent;
     display: none;
