@@ -1,6 +1,4 @@
 .restaurants {
-    margin: 4em calc(4vw - .5em) 0;
-
     ul {
         display: flex;
         flex-direction: row;
@@ -16,7 +14,7 @@
         align-items: center;
         width: 100%;
         max-width: 65em;
-        margin: 10em auto 4em;
+        margin: 5em auto 4em;
 
         @media only screen and (min-width: 1000px) {
             flex-direction: row;
@@ -38,10 +36,10 @@
             }
 
             p {
-                
+
                 max-width: 24em;
             }
-            
+
         }
 
         &-milestone {
@@ -84,7 +82,108 @@
                 }
             }
 
-            
+
+        }
+    }
+
+    &-sort {
+        display: flex;
+        flex-direction: column;
+        flex-shrink: 1;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        max-width: 65em;
+        margin: 5em auto 4em;
+
+        @media only screen and (min-width: 1000px) {
+            align-items: flex-start;
+        }
+
+        form {
+            width: 100%;
+        }
+
+        label > span {
+            color: $blue;
+            font-family: $brandFont;
+            font-weight: bold;
+            letter-spacing: .2em;
+            line-height: 2.5rem;
+            vertical-align: top;
+        }
+
+        select {
+            display: none;
+        }
+
+        .selectize-control.single {
+            display: inline-block;
+            width: 18em;
+
+            @media only screen and (max-width: 410px) {
+                width: calc(100% - 60px);
+            }
+
+            .selectize-input {
+                border-radius: $border-radius;
+                border: 0.125em solid $blue;
+                background: none;
+                box-shadow: none;
+                display: inline-block;
+                padding-top: 10px;
+
+                &:after {
+                    border: solid $red;
+                    border-width: 0 3px 3px 0;
+                    display: inline-block;
+                    padding: 3px;
+                    margin-top: -6px;
+                    transform: rotate(45deg);
+                    -webkit-transform: rotate(45deg);
+                }
+
+                &.dropdown-active {
+                    border-bottom-left-radius: 0;
+                    border-bottom-right-radius: 0;
+
+                    &:before {
+                        content: none;
+                    }
+
+                    &:after {
+                        transform: rotate(-135deg);
+                        -webkit-transform: rotate(-135deg);
+                    }
+                }
+
+                .item {
+                    color: $blue;
+                    font-size: 1.125rem;
+                }
+            }
+        }
+
+        .selectize-dropdown.single {
+            border: 0.125em solid $blue;
+            border-radius: $border-radius;
+            border-top-left-radius: 0;
+            border-top-right-radius: 0;
+            border-top: none;
+            margin-top: -2px;
+            box-shadow: none;
+
+            .option {
+                background-color: unset;
+                color: $blue;
+                cursor: pointer;
+                font-size: 1.125rem;
+                line-height: 1.75rem;
+
+                &:hover {
+                    color: darken($blue, 15);
+                }
+            }
         }
     }
 }

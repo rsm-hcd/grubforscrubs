@@ -6,7 +6,9 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Grub for Scrubs</title>
-    <link href="assets/main.min.css?q=2" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/css/selectize.default.min.css"
+        rel="stylesheet">
+    <link href="assets/main.min.css?q=3" rel="stylesheet">
     <link rel="icon" type="image/png" href="assets/img/favicon.png" sizes="16x16">
     <link rel="icon" type="image/png" href="assets/img/favicon32.png" sizes="32x32">
     <link rel="icon" type="image/png" href="assets/img/favicon96.png" sizes="96x96">
@@ -91,380 +93,421 @@
                 also supporting our local restaurant entrepreneurs who are working hard every day to keep their
                 restaurants running.</p>
         </section>
-        <section class="restaurants">
-            <div class="restaurants-sectionHeader">
-                <div class="restaurants-sectionHeader-text">
-                    <h3>Donate for Meals</h3>
-                    <p>Help your favorite restaurant raise $1,000 to delivery meals to UPMC Pinnacle’s healthcare team.
-                        Each time a restaurant hits the $1,000 milestone, Grub for Scrubs will place an order and
-                        schedule a delivery.</p>
-                </div>
-                <div class="restaurants-sectionHeader-milestone">
-                    <div class="restaurants-sectionHeader-milestone-text">
-                        <label>Order Milestone</label>
-                        <p>$1,000</p>
-                    </div>
-                    <div class="restaurants-sectionHeader-milestone-icon">
-                        <img src="assets/img/milestone.png"
-                            srcset="assets/img/milestone.png 1x, assets/img/milestone@2x.png 2x" alt="A party icon" />
-                    </div>
-                </div>
+        <section class="tabs">
+            <div class="tabs-wrapper" role="tablist" aria-label="Restaurant Tabs">
+                <a href="#panel-1" class="tab -selected" aria-selected="true" aria-controls="panel-1" id="tab-1"
+                    tabindex="0">Meals</a>
+                <a href="#panel-2" class="tab" aria-selected="false" aria-controls="panel-2" id="tab-2"
+                    tabindex="1">Coffee + Treats</a>
             </div>
-            <ul class="-preload" gs-restaurants>
-                <li class="restaurant" gs-slug="aleco-s-cafe-restaurant-grub-for-scrubs-hbg"
-                    gs-name="Aleco's Cafe Restaurant">
-                    <div class="restaurant-logo">
-                        <a href="https://www.alecoscaferestaurant.com/" target="_blank" rel="noopener noreferrer">
-                            <img src="assets/img/logo-alecos.png"
-                                srcset="assets/img/logo-alecos.png 1x, assets/img/logo-alecos@2x.png 2x"
-                                alt="Aleco's Cafe Restaurant Logo" />
-                        </a>
+            <section id="panel-1" role="tabpanel" tabindex="0" aria-labelledby="tab-1"
+                class="restaurants tab-panel -selected">
+                <div class="restaurants-sectionHeader">
+                    <div class="restaurants-sectionHeader-text">
+                        <h3>Donate for Meals</h3>
+                        <p>Help your favorite restaurant raise $1,000 to delivery meals to UPMC Pinnacle’s healthcare
+                            team.
+                            Each time a restaurant hits the $1,000 milestone, Grub for Scrubs will place an order and
+                            schedule a delivery.</p>
                     </div>
-                    <h3 class="restaurant-name">Aleco's Cafe Restaurant</h3>
-                    <label class="restaurant-raised -preload" gs-amount>$0</label>
-                    <a class="button -preload" href="#" target="_blank" rel="noopener noreferrer"
-                        onclick="gtag('event', 'click', {'event_category': 'Donate Button', 'event_label': 'Alecos Cafe Restaurant'});"
-                        gs-donate>Donate</a>
-                </li>
-                <li class="restaurant" gs-slug="cafe-fresco-grub-for-scrubs-hbg" gs-name="Cafe Fresco">
-                    <div class="restaurant-logo">
-                        <a href="http://www.cafefresco.com/" target="_blank" rel="noopener noreferrer">
-                            <img src="assets/img/logo-fresco.png"
-                                srcset="assets/img/logo-fresco.png 1x, assets/img/logo-fresco@2x.png 2x"
-                                alt="Cafe Fresco Logo" />
-                        </a>
-                    </div>
-                    <h3 class="restaurant-name">Cafe Fresco</h3>
-                    <label class="restaurant-raised -preload" gs-amount>$0</label>
-                    <a class="button -preload" href="#" target="_blank" rel="noopener noreferrer"
-                        onclick="gtag('event', 'click', {'event_category': 'Donate Button', 'event_label': 'Cafe Fresco'});"
-                        gs-donate>Donate</a>
-                </li>
-                <li class="restaurant" gs-slug="cedar-cliff-pizza-grub-for-scrubs-hbg" gs-name="Cedar Cliff Pizza">
-                    <div class="restaurant-logo">
-                        <a href="https://www.ordercedarcliffpizza.com/" target="_blank" rel="noopener noreferrer">
-                            <img src="assets/img/logo-cedarcliffpizza.png"
-                                srcset="assets/img/logo-cedarcliffpizza.png 1x, assets/img/logo-cedarcliffpizza@2x.png 2x"
-                                alt="Cedar Cliff Pizza Logo" />
-                        </a>
-                    </div>
-                    <h3 class="restaurant-name">Cedar Cliff Pizza</h3>
-                    <label class="restaurant-raised -preload" gs-amount>$0</label>
-                    <a class="button -preload" href="#" target="_blank" rel="noopener noreferrer"
-                        onclick="gtag('event', 'click', {'event_category': 'Donate Button', 'event_label': 'Cedar Cliff Pizza'});"
-                        gs-donate>Donate</a>
-                </li>
-                <li class="restaurant" gs-slug="jigsy-s-brewpub-restaurant-grub-for-scrubs-hbg"
-                    gs-name="Jigsys Brewpub + Restaurant">
-                    <div class="restaurant-logo">
-                        <a href="https://jigsyspizza.com/" target="_blank" rel="noopener noreferrer">
-                            <img src="assets/img/logo-jigsys.png"
-                                srcset="assets/img/logo-jigsys.png 1x, assets/img/logo-jigsys@2x.png 2x"
-                                alt="Jigsys Brewpub + Restaurant Logo" />
-                        </a>
-                    </div>
-                    <h3 class="restaurant-name">Jigsys Brewpub + Restaurant</h3>
-                    <label class="restaurant-raised -preload" gs-amount>$0</label>
-                    <a class="button -preload" href="#" target="_blank" rel="noopener noreferrer"
-                        onclick="gtag('event', 'click', {'event_category': 'Donate Button', 'event_label': 'Jigsys'});"
-                        gs-donate>Donate</a>
-                </li>
-                <li class="restaurant" gs-slug="knead-slice-shop-grub-for-scrubs-hbg" gs-name="Knead Slice Shop">
-                    <div class="restaurant-logo">
-                        <a href="https://www.kneadhbg.com/" target="_blank" rel="noopener noreferrer">
-                            <img src="assets/img/logo-knead.png"
-                                srcset="assets/img/logo-knead.png 1x, assets/img/logo-knead@2x.png 2x"
-                                alt="Knead Slice Shop" />
-                        </a>
-                    </div>
-                    <h3 class="restaurant-name">Knead Slice Shop</h3>
-                    <label class="restaurant-raised -preload" gs-amount>$0</label>
-                    <a class="button -preload" href="#" target="_blank" rel="noopener noreferrer"
-                        onclick="gtag('event', 'click', {'event_category': 'Donate Button', 'event_label': 'Knead Slice Shop'});"
-                        gs-donate>Donate</a>
-                </li>
-                <li class="restaurant" gs-slug="premier-caterers-grub-for-scrubs-hbg" gs-name="Premier Caterers">
-                    <div class="restaurant-logo">
-                        <a href="https://www.premier-caterers.com/Home" target="_blank" rel="noopener noreferrer">
-                            <img src="assets/img/logo-premier.png"
-                                srcset="assets/img/logo-premier.png 1x, assets/img/logo-premier@2x.png 2x"
-                                alt="Premier Caterers Logo" />
-                        </a>
-                    </div>
-                    <h3 class="restaurant-name">Premier Caterers</h3>
-                    <label class="restaurant-raised -preload" gs-amount>$0</label>
-                    <a class="button -preload" href="#" target="_blank" rel="noopener noreferrer"
-                        onclick="gtag('event', 'click', {'event_category': 'Donate Button', 'event_label': 'Premier Caterers'});"
-                        gs-donate>Donate</a>
-                </li>
-                <li class="restaurant" gs-slug="stocks-on-second-grub-for-scrubs-hbg" gs-name="Stock's On 2nd">
-                    <div class="restaurant-logo">
-                        <a href="http://www.stocksonsecond.com/" target="_blank" rel="noopener noreferrer">
-                            <img src="assets/img/logo-stocks.png"
-                                srcset="assets/img/logo-stocks.png 1x, assets/img/logo-stocks@2x.png 2x"
-                                alt="Stock's On 2nd Logo" />
-                        </a>
-                    </div>
-                    <h3 class="restaurant-name">Stock's On 2nd</h3>
-                    <label class="restaurant-raised -preload" gs-amount>$0</label>
-                    <a class="button -preload" href="#" target="_blank" rel="noopener noreferrer"
-                        onclick="gtag('event', 'click', {'event_category': 'Donate Button', 'event_label': 'Stocks On 2nd'});"
-                        gs-donate>Donate</a>
-                </li>
-                <li class="restaurant" gs-slug="sturges-speakeasy-grub-for-scrubs-hbg" gs-name="Sturges Speakeasy">
-                    <div class="restaurant-logo">
-                        <a href="https://sturgesspeakeasy.com/" target="_blank" rel="noopener noreferrer">
-                            <img src="assets/img/logo-sturges.png"
-                                srcset="assets/img/logo-sturges.png 1x, assets/img/logo-sturges@2x.png 2x"
-                                alt="Sturges Speakeasy Logo" />
-                        </a>
-                    </div>
-                    <h3 class="restaurant-name">Sturges Speakeasy</h3>
-                    <label class="restaurant-raised -preload" gs-amount>$0</label>
-                    <a class="button -preload" href="#" target="_blank" rel="noopener noreferrer"
-                        onclick="gtag('event', 'click', {'event_category': 'Donate Button', 'event_label': 'Sturges Speakeasy'});"
-                        gs-donate>Donate</a>
-                </li>
-                <li class="restaurant" gs-slug="joe-mama-s-kitchen-and-catering-grub-for-scrubs-hbg"
-                    gs-name="Joe Mama’s Kitchen and Catering">
-                    <div class="restaurant-logo">
-                        <a href="https://www.joemommaskitchen.com/" target="_blank" rel="noopener noreferrer">
-                            <img src="assets/img/logo-joemamas.png"
-                                srcset="assets/img/logo-joemamas.png 1x, assets/img/logo-joemamas@2x.png 2x"
-                                alt="Joe Mama’s Kitchen and Catering Logo" />
-                        </a>
-                    </div>
-                    <h3 class="restaurant-name">Joe Mama’s Kitchen and Catering</h3>
-                    <label class="restaurant-raised -preload" gs-amount>$0</label>
-                    <a class="button -preload" href="#" target="_blank" rel="noopener noreferrer"
-                        onclick="gtag('event', 'click', {'event_category': 'Donate Button', 'event_label': 'Joe Mamas Kitchen and Catering'});"
-                        gs-donate>Donate</a>
-                </li>
-                <li class="restaurant" gs-slug="yellow-bird-cafe-grub-for-scrubs-hbg" gs-name="YellowBird Cafe">
-                    <div class="restaurant-logo">
-                        <a href="http://yellowbird.arqbox.com/" target="_blank" rel="noopener noreferrer">
-                            <img src="assets/img/logo-yellowbird.png"
-                                srcset="assets/img/logo-yellowbird.png 1x, assets/img/logo-yellowbird@2x.png 2x"
-                                alt="YellowBird Cafe Logo" />
-                        </a>
-                    </div>
-                    <h3 class="restaurant-name">YellowBird Cafe</h3>
-                    <label class="restaurant-raised -preload" gs-amount>$0</label>
-                    <a class="button -preload" href="#" target="_blank" rel="noopener noreferrer"
-                        onclick="gtag('event', 'click', {'event_category': 'Donate Button', 'event_label': 'YellowBird Cafe'});"
-                        gs-donate>Donate</a>
-                </li>
-                <li class="restaurant" gs-slug="evolution-catering-grub-for-scrubs-hbg" gs-name="Evolution Catering">
-                    <div class="restaurant-logo">
-                        <a href="http://evolutioncateringllc.com/" target="_blank" rel="noopener noreferrer">
-                            <img src="assets/img/logo-evolution.png"
-                                srcset="assets/img/logo-evolution.png 1x, assets/img/logo-evolution@2x.png 2x"
-                                alt="Evolution Catering Logo" />
-                        </a>
-                    </div>
-                    <h3 class="restaurant-name">Evolution Catering</h3>
-                    <label class="restaurant-raised -preload" gs-amount>$0</label>
-                    <a class="button -preload" href="#" target="_blank" rel="noopener noreferrer"
-                        onclick="gtag('event', 'click', {'event_category': 'Donate Button', 'event_label': 'Evolution Catering'});"
-                        gs-donate>Donate</a>
-                </li>
-                <li class="restaurant" gs-slug="el-rancho-restaurante-y-pupuseria-grub-for-scrubs-hbg"
-                    gs-name="El Rancho Restaurante y Pupuseria">
-                    <div class="restaurant-logo">
-                        <a href="https://el-rancho-restaurante-y-pupuseria.business.site/" target="_blank"
-                            rel="noopener noreferrer">
-                            <img src="assets/img/logo-elrancho.png"
-                                srcset="assets/img/logo-elrancho.png 1x, assets/img/logo-elrancho@2x.png 2x"
-                                alt="El Rancho Restaurante y Pupuseria Logo" />
-                        </a>
-                    </div>
-                    <h3 class="restaurant-name">El Rancho Restaurante y Pupuseria</h3>
-                    <label class="restaurant-raised -preload" gs-amount>$0</label>
-                    <a class="button -preload" href="#" target="_blank" rel="noopener noreferrer"
-                        onclick="gtag('event', 'click', {'event_category': 'Donate Button', 'event_label': 'El Rancho Restaurante y Pupuseria'});"
-                        gs-donate>Donate</a>
-                </li>
-                <li class="restaurant" gs-slug="mtf-catering-grub-for-scrubs-hbg" gs-name="MTF Catering">
-                    <div class="restaurant-logo">
-                        <a href="https://mtfcatering.com/" target="_blank" rel="noopener noreferrer">
-                            <img src="assets/img/logo-mtf.png"
-                                srcset="assets/img/logo-mtf.png 1x, assets/img/logo-mtf@2x.png 2x"
-                                alt="MTF Catering Logo" />
-                        </a>
-                    </div>
-                    <h3 class="restaurant-name">MTF Catering</h3>
-                    <label class="restaurant-raised -preload" gs-amount>$0</label>
-                    <a class="button -preload" href="#" target="_blank" rel="noopener noreferrer"
-                        onclick="gtag('event', 'click', {'event_category': 'Donate Button', 'event_label': 'MTF Catering'});"
-                        gs-donate>Donate</a>
-                </li>
-                <li class="restaurant" gs-slug="crave-the-food-grub-for-scrubs-hbg" gs-name="Crave the Food">
-                    <div class="restaurant-logo">
-                        <a href="http://www.cravethefoodhbg.com/" target="_blank" rel="noopener noreferrer">
-                            <img src="assets/img/logo-crave.png"
-                                srcset="assets/img/logo-crave.png 1x, assets/img/logo-crave@2x.png 2x"
-                                alt="Crave the Food Logo" />
-                        </a>
-                    </div>
-                    <h3 class="restaurant-name">Crave the Food</h3>
-                    <label class="restaurant-raised -preload" gs-amount>$0</label>
-                    <a class="button -preload" href="#" target="_blank" rel="noopener noreferrer"
-                        onclick="gtag('event', 'click', {'event_category': 'Donate Button', 'event_label': 'Crave the Food'});"
-                        gs-donate>Donate</a>
-                </li>
-                <li class="restaurant" gs-slug="the-jdk-group-grub-for-scrubs-hbg" gs-name="The JDK Group">
-                    <div class="restaurant-logo">
-                        <a href="https://thejdkgroup.com/" target="_blank" rel="noopener noreferrer">
-                            <img src="assets/img/logo-jdk.png"
-                                srcset="assets/img/logo-jdk.png 1x, assets/img/logo-jdk@2x.png 2x"
-                                alt="The JDK Group Logo" />
-                        </a>
-                    </div>
-                    <h3 class="restaurant-name">The JDK Group</h3>
-                    <label class="restaurant-raised -preload" gs-amount>$0</label>
-                    <a class="button -preload" href="#" target="_blank" rel="noopener noreferrer"
-                        onclick="gtag('event', 'click', {'event_category': 'Donate Button', 'event_label': 'The JDK Group'});"
-                        gs-donate>Donate</a>
-                </li>
-                <li class="restaurant" gs-slug="city-line-diner-grub-for-scrubs-hbg" gs-name="City Line Diner">
-                    <div class="restaurant-logo">
-                        <a href="https://www.facebook.com/CityLineDiner/" target="_blank" rel="noopener noreferrer">
-                            <img src="assets/img/logo-cityline.png"
-                                srcset="assets/img/logo-cityline.png 1x, assets/img/logo-cityline@2x.png 2x"
-                                alt="City Line Diner Logo" />
-                        </a>
-                    </div>
-                    <h3 class="restaurant-name">City Line Diner</h3>
-                    <label class="restaurant-raised -preload" gs-amount>$0</label>
-                    <a class="button -preload" href="#" target="_blank" rel="noopener noreferrer"
-                        onclick="gtag('event', 'click', {'event_category': 'Donate Button', 'event_label': 'City Line Diner'});"
-                        gs-donate>Donate</a>
-                </li>
-                <li class="restaurant" gs-slug="jb-lovedraft-s-micropub-grub-for-scrubs-hbg"
-                    gs-name="JB Lovedrafts MicroPub">
-                    <div class="restaurant-logo">
-                        <a href="https://jblovedrafts.com/" target="_blank" rel="noopener noreferrer">
-                            <img src="assets/img/logo-jbs.png"
-                                srcset="assets/img/logo-jbs.png 1x, assets/img/logo-jbs@2x.png 2x"
-                                alt="JB Lovedrafts MicroPub Logo" />
-                        </a>
-                    </div>
-                    <h3 class="restaurant-name">JB Lovedrafts MicroPub</h3>
-                    <label class="restaurant-raised -preload" gs-amount>$0</label>
-                    <a class="button -preload" href="#" target="_blank" rel="noopener noreferrer"
-                        onclick="gtag('event', 'click', {'event_category': 'Donate Button', 'event_label': 'JB Lovedrafts MicroPub'});"
-                        gs-donate>Donate</a>
-                </li>
-                <li class="restaurant" gs-slug="hoageez-grub-for-scrubs-hbg" gs-name="HOAGEEZ">
-                    <div class="restaurant-logo">
-                        <a href="https://www.hoageez.com/" target="_blank" rel="noopener noreferrer">
-                            <img src="assets/img/logo-hoageez.png"
-                                srcset="assets/img/logo-hoageez.png 1x, assets/img/logo-hoageez@2x.png 2x"
-                                alt="HOAGEEZ Logo" />
-                        </a>
-                    </div>
-                    <h3 class="restaurant-name">HOAGEEZ</h3>
-                    <label class="restaurant-raised -preload" gs-amount>$0</label>
-                    <a class="button -preload" href="#" target="_blank" rel="noopener noreferrer"
-                        onclick="gtag('event', 'click', {'event_category': 'Donate Button', 'event_label': 'HOAGEEZ'});"
-                        gs-donate>Donate</a>
-                </li>
-                <li class="restaurant" gs-slug="the-pizza-grille-grub-for-scrubs-hbg" gs-name="The Pizza Grille">
-                    <div class="restaurant-logo">
-                        <a href="http://www.thepizzagrille.com/" target="_blank" rel="noopener noreferrer">
-                            <img src="assets/img/logo-pizzagrille.png"
-                                srcset="assets/img/logo-pizzagrille.png 1x, assets/img/logo-pizzagrille@2x.png 2x"
-                                alt="The Pizza Grille Logo" />
-                        </a>
-                    </div>
-                    <h3 class="restaurant-name">The Pizza Grille</h3>
-                    <label class="restaurant-raised -preload" gs-amount>$0</label>
-                    <a class="button -preload" href="#" target="_blank" rel="noopener noreferrer"
-                        onclick="gtag('event', 'click', {'event_category': 'Donate Button', 'event_label': 'The Pizza Grille'});"
-                        gs-donate>Donate</a>
-                </li>
-            </ul>
-        </section>
-        <section class="restaurants">
-            <div class="restaurants-sectionHeader">
-                <div class="restaurants-sectionHeader-text">
-                    <h3>Donate for Coffee + Treats</h3>
-                    <p>Help your favorite spot raise $250 to deliver coffee or desserts to UPMC Pinnacle’s healthcare
-                        team. Each time a shop hits the $250 milestone, Grub for Scrubs will place an order and schedule
-                        a delivery.
-                    </p>
-                </div>
-                <div class="restaurants-sectionHeader-milestone">
-                    <div class="restaurants-sectionHeader-milestone-text">
-                        <label>Order Milestone</label>
-                        <p>$250</p>
-                    </div>
-                    <div class="restaurants-sectionHeader-milestone-icon">
-                        <img src="assets/img/milestone.png"
-                            srcset="assets/img/milestone.png 1x, assets/img/milestone@2x.png 2x" alt="A party icon" />
+                    <div class="restaurants-sectionHeader-milestone">
+                        <div class="restaurants-sectionHeader-milestone-text">
+                            <label>Order Milestone</label>
+                            <p>$1,000</p>
+                        </div>
+                        <div class="restaurants-sectionHeader-milestone-icon">
+                            <img src="assets/img/milestone.png"
+                                srcset="assets/img/milestone.png 1x, assets/img/milestone@2x.png 2x"
+                                alt="A party icon" />
+                        </div>
                     </div>
                 </div>
-            </div>
-            <ul class="-preload" gs-restaurants>
-                <li class="restaurant" gs-slug="elementary-coffee-co-grub-for-scrubs-hbg" gs-name="Elementary Coffee">
-                    <div class="restaurant-logo">
-                        <a href="https://www.elementarycoffee.co/" target="_blank" rel="noopener noreferrer">
-                            <img src="assets/img/logo-elementary.png"
-                                srcset="assets/img/logo-elementary.png 1x, assets/img/logo-elementary@2x.png 2x"
-                                alt="Elementary Coffee Logo" />
-                        </a>
+                <div class="restaurants-sort">
+                    <form>
+                        <label>
+                            <span>SORT:</span>
+                            <select name="sort" selectize>
+                                <option value="alpha">Alphabetically</option>
+                                <option value="high">Amount Raised (High to Low)</option>
+                                <option value="low">Amount Raised (Low to High)</option>
+                            </select>
+                        </label>
+                    </form>
+                </div>
+                <ul class="-preload" gs-restaurants>
+                    <li class="restaurant" gs-slug="aleco-s-cafe-restaurant-grub-for-scrubs-hbg"
+                        gs-name="Aleco's Cafe Restaurant">
+                        <div class="restaurant-logo">
+                            <a href="https://www.alecoscaferestaurant.com/" target="_blank" rel="noopener noreferrer">
+                                <img src="assets/img/logo-alecos.png"
+                                    srcset="assets/img/logo-alecos.png 1x, assets/img/logo-alecos@2x.png 2x"
+                                    alt="Aleco's Cafe Restaurant Logo" />
+                            </a>
+                        </div>
+                        <h3 class="restaurant-name">Aleco's Cafe Restaurant</h3>
+                        <label class="restaurant-raised -preload" gs-amount>$0</label>
+                        <a class="button -preload" href="#" target="_blank" rel="noopener noreferrer"
+                            onclick="gtag('event', 'click', {'event_category': 'Donate Button', 'event_label': 'Alecos Cafe Restaurant'});"
+                            gs-donate>Donate</a>
+                    </li>
+                    <li class="restaurant" gs-slug="cafe-fresco-grub-for-scrubs-hbg" gs-name="Cafe Fresco">
+                        <div class="restaurant-logo">
+                            <a href="http://www.cafefresco.com/" target="_blank" rel="noopener noreferrer">
+                                <img src="assets/img/logo-fresco.png"
+                                    srcset="assets/img/logo-fresco.png 1x, assets/img/logo-fresco@2x.png 2x"
+                                    alt="Cafe Fresco Logo" />
+                            </a>
+                        </div>
+                        <h3 class="restaurant-name">Cafe Fresco</h3>
+                        <label class="restaurant-raised -preload" gs-amount>$0</label>
+                        <a class="button -preload" href="#" target="_blank" rel="noopener noreferrer"
+                            onclick="gtag('event', 'click', {'event_category': 'Donate Button', 'event_label': 'Cafe Fresco'});"
+                            gs-donate>Donate</a>
+                    </li>
+                    <li class="restaurant" gs-slug="cedar-cliff-pizza-grub-for-scrubs-hbg" gs-name="Cedar Cliff Pizza">
+                        <div class="restaurant-logo">
+                            <a href="https://www.ordercedarcliffpizza.com/" target="_blank" rel="noopener noreferrer">
+                                <img src="assets/img/logo-cedarcliffpizza.png"
+                                    srcset="assets/img/logo-cedarcliffpizza.png 1x, assets/img/logo-cedarcliffpizza@2x.png 2x"
+                                    alt="Cedar Cliff Pizza Logo" />
+                            </a>
+                        </div>
+                        <h3 class="restaurant-name">Cedar Cliff Pizza</h3>
+                        <label class="restaurant-raised -preload" gs-amount>$0</label>
+                        <a class="button -preload" href="#" target="_blank" rel="noopener noreferrer"
+                            onclick="gtag('event', 'click', {'event_category': 'Donate Button', 'event_label': 'Cedar Cliff Pizza'});"
+                            gs-donate>Donate</a>
+                    </li>
+                    <li class="restaurant" gs-slug="jigsy-s-brewpub-restaurant-grub-for-scrubs-hbg"
+                        gs-name="Jigsys Brewpub + Restaurant">
+                        <div class="restaurant-logo">
+                            <a href="https://jigsyspizza.com/" target="_blank" rel="noopener noreferrer">
+                                <img src="assets/img/logo-jigsys.png"
+                                    srcset="assets/img/logo-jigsys.png 1x, assets/img/logo-jigsys@2x.png 2x"
+                                    alt="Jigsys Brewpub + Restaurant Logo" />
+                            </a>
+                        </div>
+                        <h3 class="restaurant-name">Jigsys Brewpub + Restaurant</h3>
+                        <label class="restaurant-raised -preload" gs-amount>$0</label>
+                        <a class="button -preload" href="#" target="_blank" rel="noopener noreferrer"
+                            onclick="gtag('event', 'click', {'event_category': 'Donate Button', 'event_label': 'Jigsys'});"
+                            gs-donate>Donate</a>
+                    </li>
+                    <li class="restaurant" gs-slug="knead-slice-shop-grub-for-scrubs-hbg" gs-name="Knead Slice Shop">
+                        <div class="restaurant-logo">
+                            <a href="https://www.kneadhbg.com/" target="_blank" rel="noopener noreferrer">
+                                <img src="assets/img/logo-knead.png"
+                                    srcset="assets/img/logo-knead.png 1x, assets/img/logo-knead@2x.png 2x"
+                                    alt="Knead Slice Shop" />
+                            </a>
+                        </div>
+                        <h3 class="restaurant-name">Knead Slice Shop</h3>
+                        <label class="restaurant-raised -preload" gs-amount>$0</label>
+                        <a class="button -preload" href="#" target="_blank" rel="noopener noreferrer"
+                            onclick="gtag('event', 'click', {'event_category': 'Donate Button', 'event_label': 'Knead Slice Shop'});"
+                            gs-donate>Donate</a>
+                    </li>
+                    <li class="restaurant" gs-slug="premier-caterers-grub-for-scrubs-hbg" gs-name="Premier Caterers">
+                        <div class="restaurant-logo">
+                            <a href="https://www.premier-caterers.com/Home" target="_blank" rel="noopener noreferrer">
+                                <img src="assets/img/logo-premier.png"
+                                    srcset="assets/img/logo-premier.png 1x, assets/img/logo-premier@2x.png 2x"
+                                    alt="Premier Caterers Logo" />
+                            </a>
+                        </div>
+                        <h3 class="restaurant-name">Premier Caterers</h3>
+                        <label class="restaurant-raised -preload" gs-amount>$0</label>
+                        <a class="button -preload" href="#" target="_blank" rel="noopener noreferrer"
+                            onclick="gtag('event', 'click', {'event_category': 'Donate Button', 'event_label': 'Premier Caterers'});"
+                            gs-donate>Donate</a>
+                    </li>
+                    <li class="restaurant" gs-slug="stocks-on-second-grub-for-scrubs-hbg" gs-name="Stock's On 2nd">
+                        <div class="restaurant-logo">
+                            <a href="http://www.stocksonsecond.com/" target="_blank" rel="noopener noreferrer">
+                                <img src="assets/img/logo-stocks.png"
+                                    srcset="assets/img/logo-stocks.png 1x, assets/img/logo-stocks@2x.png 2x"
+                                    alt="Stock's On 2nd Logo" />
+                            </a>
+                        </div>
+                        <h3 class="restaurant-name">Stock's On 2nd</h3>
+                        <label class="restaurant-raised -preload" gs-amount>$0</label>
+                        <a class="button -preload" href="#" target="_blank" rel="noopener noreferrer"
+                            onclick="gtag('event', 'click', {'event_category': 'Donate Button', 'event_label': 'Stocks On 2nd'});"
+                            gs-donate>Donate</a>
+                    </li>
+                    <li class="restaurant" gs-slug="sturges-speakeasy-grub-for-scrubs-hbg" gs-name="Sturges Speakeasy">
+                        <div class="restaurant-logo">
+                            <a href="https://sturgesspeakeasy.com/" target="_blank" rel="noopener noreferrer">
+                                <img src="assets/img/logo-sturges.png"
+                                    srcset="assets/img/logo-sturges.png 1x, assets/img/logo-sturges@2x.png 2x"
+                                    alt="Sturges Speakeasy Logo" />
+                            </a>
+                        </div>
+                        <h3 class="restaurant-name">Sturges Speakeasy</h3>
+                        <label class="restaurant-raised -preload" gs-amount>$0</label>
+                        <a class="button -preload" href="#" target="_blank" rel="noopener noreferrer"
+                            onclick="gtag('event', 'click', {'event_category': 'Donate Button', 'event_label': 'Sturges Speakeasy'});"
+                            gs-donate>Donate</a>
+                    </li>
+                    <li class="restaurant" gs-slug="joe-mama-s-kitchen-and-catering-grub-for-scrubs-hbg"
+                        gs-name="Joe Mama’s Kitchen and Catering">
+                        <div class="restaurant-logo">
+                            <a href="https://www.joemommaskitchen.com/" target="_blank" rel="noopener noreferrer">
+                                <img src="assets/img/logo-joemamas.png"
+                                    srcset="assets/img/logo-joemamas.png 1x, assets/img/logo-joemamas@2x.png 2x"
+                                    alt="Joe Mama’s Kitchen and Catering Logo" />
+                            </a>
+                        </div>
+                        <h3 class="restaurant-name">Joe Mama’s Kitchen and Catering</h3>
+                        <label class="restaurant-raised -preload" gs-amount>$0</label>
+                        <a class="button -preload" href="#" target="_blank" rel="noopener noreferrer"
+                            onclick="gtag('event', 'click', {'event_category': 'Donate Button', 'event_label': 'Joe Mamas Kitchen and Catering'});"
+                            gs-donate>Donate</a>
+                    </li>
+                    <li class="restaurant" gs-slug="yellow-bird-cafe-grub-for-scrubs-hbg" gs-name="YellowBird Cafe">
+                        <div class="restaurant-logo">
+                            <a href="http://yellowbird.arqbox.com/" target="_blank" rel="noopener noreferrer">
+                                <img src="assets/img/logo-yellowbird.png"
+                                    srcset="assets/img/logo-yellowbird.png 1x, assets/img/logo-yellowbird@2x.png 2x"
+                                    alt="YellowBird Cafe Logo" />
+                            </a>
+                        </div>
+                        <h3 class="restaurant-name">YellowBird Cafe</h3>
+                        <label class="restaurant-raised -preload" gs-amount>$0</label>
+                        <a class="button -preload" href="#" target="_blank" rel="noopener noreferrer"
+                            onclick="gtag('event', 'click', {'event_category': 'Donate Button', 'event_label': 'YellowBird Cafe'});"
+                            gs-donate>Donate</a>
+                    </li>
+                    <li class="restaurant" gs-slug="evolution-catering-grub-for-scrubs-hbg"
+                        gs-name="Evolution Catering">
+                        <div class="restaurant-logo">
+                            <a href="http://evolutioncateringllc.com/" target="_blank" rel="noopener noreferrer">
+                                <img src="assets/img/logo-evolution.png"
+                                    srcset="assets/img/logo-evolution.png 1x, assets/img/logo-evolution@2x.png 2x"
+                                    alt="Evolution Catering Logo" />
+                            </a>
+                        </div>
+                        <h3 class="restaurant-name">Evolution Catering</h3>
+                        <label class="restaurant-raised -preload" gs-amount>$0</label>
+                        <a class="button -preload" href="#" target="_blank" rel="noopener noreferrer"
+                            onclick="gtag('event', 'click', {'event_category': 'Donate Button', 'event_label': 'Evolution Catering'});"
+                            gs-donate>Donate</a>
+                    </li>
+                    <li class="restaurant" gs-slug="el-rancho-restaurante-y-pupuseria-grub-for-scrubs-hbg"
+                        gs-name="El Rancho Restaurante y Pupuseria">
+                        <div class="restaurant-logo">
+                            <a href="https://el-rancho-restaurante-y-pupuseria.business.site/" target="_blank"
+                                rel="noopener noreferrer">
+                                <img src="assets/img/logo-elrancho.png"
+                                    srcset="assets/img/logo-elrancho.png 1x, assets/img/logo-elrancho@2x.png 2x"
+                                    alt="El Rancho Restaurante y Pupuseria Logo" />
+                            </a>
+                        </div>
+                        <h3 class="restaurant-name">El Rancho Restaurante y Pupuseria</h3>
+                        <label class="restaurant-raised -preload" gs-amount>$0</label>
+                        <a class="button -preload" href="#" target="_blank" rel="noopener noreferrer"
+                            onclick="gtag('event', 'click', {'event_category': 'Donate Button', 'event_label': 'El Rancho Restaurante y Pupuseria'});"
+                            gs-donate>Donate</a>
+                    </li>
+                    <li class="restaurant" gs-slug="mtf-catering-grub-for-scrubs-hbg" gs-name="MTF Catering">
+                        <div class="restaurant-logo">
+                            <a href="https://mtfcatering.com/" target="_blank" rel="noopener noreferrer">
+                                <img src="assets/img/logo-mtf.png"
+                                    srcset="assets/img/logo-mtf.png 1x, assets/img/logo-mtf@2x.png 2x"
+                                    alt="MTF Catering Logo" />
+                            </a>
+                        </div>
+                        <h3 class="restaurant-name">MTF Catering</h3>
+                        <label class="restaurant-raised -preload" gs-amount>$0</label>
+                        <a class="button -preload" href="#" target="_blank" rel="noopener noreferrer"
+                            onclick="gtag('event', 'click', {'event_category': 'Donate Button', 'event_label': 'MTF Catering'});"
+                            gs-donate>Donate</a>
+                    </li>
+                    <li class="restaurant" gs-slug="crave-the-food-grub-for-scrubs-hbg" gs-name="Crave the Food">
+                        <div class="restaurant-logo">
+                            <a href="http://www.cravethefoodhbg.com/" target="_blank" rel="noopener noreferrer">
+                                <img src="assets/img/logo-crave.png"
+                                    srcset="assets/img/logo-crave.png 1x, assets/img/logo-crave@2x.png 2x"
+                                    alt="Crave the Food Logo" />
+                            </a>
+                        </div>
+                        <h3 class="restaurant-name">Crave the Food</h3>
+                        <label class="restaurant-raised -preload" gs-amount>$0</label>
+                        <a class="button -preload" href="#" target="_blank" rel="noopener noreferrer"
+                            onclick="gtag('event', 'click', {'event_category': 'Donate Button', 'event_label': 'Crave the Food'});"
+                            gs-donate>Donate</a>
+                    </li>
+                    <li class="restaurant" gs-slug="the-jdk-group-grub-for-scrubs-hbg" gs-name="The JDK Group">
+                        <div class="restaurant-logo">
+                            <a href="https://thejdkgroup.com/" target="_blank" rel="noopener noreferrer">
+                                <img src="assets/img/logo-jdk.png"
+                                    srcset="assets/img/logo-jdk.png 1x, assets/img/logo-jdk@2x.png 2x"
+                                    alt="The JDK Group Logo" />
+                            </a>
+                        </div>
+                        <h3 class="restaurant-name">The JDK Group</h3>
+                        <label class="restaurant-raised -preload" gs-amount>$0</label>
+                        <a class="button -preload" href="#" target="_blank" rel="noopener noreferrer"
+                            onclick="gtag('event', 'click', {'event_category': 'Donate Button', 'event_label': 'The JDK Group'});"
+                            gs-donate>Donate</a>
+                    </li>
+                    <li class="restaurant" gs-slug="city-line-diner-grub-for-scrubs-hbg" gs-name="City Line Diner">
+                        <div class="restaurant-logo">
+                            <a href="https://www.facebook.com/CityLineDiner/" target="_blank" rel="noopener noreferrer">
+                                <img src="assets/img/logo-cityline.png"
+                                    srcset="assets/img/logo-cityline.png 1x, assets/img/logo-cityline@2x.png 2x"
+                                    alt="City Line Diner Logo" />
+                            </a>
+                        </div>
+                        <h3 class="restaurant-name">City Line Diner</h3>
+                        <label class="restaurant-raised -preload" gs-amount>$0</label>
+                        <a class="button -preload" href="#" target="_blank" rel="noopener noreferrer"
+                            onclick="gtag('event', 'click', {'event_category': 'Donate Button', 'event_label': 'City Line Diner'});"
+                            gs-donate>Donate</a>
+                    </li>
+                    <li class="restaurant" gs-slug="jb-lovedraft-s-micropub-grub-for-scrubs-hbg"
+                        gs-name="JB Lovedrafts MicroPub">
+                        <div class="restaurant-logo">
+                            <a href="https://jblovedrafts.com/" target="_blank" rel="noopener noreferrer">
+                                <img src="assets/img/logo-jbs.png"
+                                    srcset="assets/img/logo-jbs.png 1x, assets/img/logo-jbs@2x.png 2x"
+                                    alt="JB Lovedrafts MicroPub Logo" />
+                            </a>
+                        </div>
+                        <h3 class="restaurant-name">JB Lovedrafts MicroPub</h3>
+                        <label class="restaurant-raised -preload" gs-amount>$0</label>
+                        <a class="button -preload" href="#" target="_blank" rel="noopener noreferrer"
+                            onclick="gtag('event', 'click', {'event_category': 'Donate Button', 'event_label': 'JB Lovedrafts MicroPub'});"
+                            gs-donate>Donate</a>
+                    </li>
+                    <li class="restaurant" gs-slug="hoageez-grub-for-scrubs-hbg" gs-name="HOAGEEZ">
+                        <div class="restaurant-logo">
+                            <a href="https://www.hoageez.com/" target="_blank" rel="noopener noreferrer">
+                                <img src="assets/img/logo-hoageez.png"
+                                    srcset="assets/img/logo-hoageez.png 1x, assets/img/logo-hoageez@2x.png 2x"
+                                    alt="HOAGEEZ Logo" />
+                            </a>
+                        </div>
+                        <h3 class="restaurant-name">HOAGEEZ</h3>
+                        <label class="restaurant-raised -preload" gs-amount>$0</label>
+                        <a class="button -preload" href="#" target="_blank" rel="noopener noreferrer"
+                            onclick="gtag('event', 'click', {'event_category': 'Donate Button', 'event_label': 'HOAGEEZ'});"
+                            gs-donate>Donate</a>
+                    </li>
+                    <li class="restaurant" gs-slug="the-pizza-grille-grub-for-scrubs-hbg" gs-name="The Pizza Grille">
+                        <div class="restaurant-logo">
+                            <a href="http://www.thepizzagrille.com/" target="_blank" rel="noopener noreferrer">
+                                <img src="assets/img/logo-pizzagrille.png"
+                                    srcset="assets/img/logo-pizzagrille.png 1x, assets/img/logo-pizzagrille@2x.png 2x"
+                                    alt="The Pizza Grille Logo" />
+                            </a>
+                        </div>
+                        <h3 class="restaurant-name">The Pizza Grille</h3>
+                        <label class="restaurant-raised -preload" gs-amount>$0</label>
+                        <a class="button -preload" href="#" target="_blank" rel="noopener noreferrer"
+                            onclick="gtag('event', 'click', {'event_category': 'Donate Button', 'event_label': 'The Pizza Grille'});"
+                            gs-donate>Donate</a>
+                    </li>
+                </ul>
+            </section>
+            <section id="panel-2" role="tabpanel" tabindex="1" aria-labelledby="tab-2" class="restaurants tab-panel">
+                <div class="restaurants-sectionHeader">
+                    <div class="restaurants-sectionHeader-text">
+                        <h3>Donate for Coffee + Treats</h3>
+                        <p>Help your favorite spot raise $250 to deliver coffee or desserts to UPMC Pinnacle’s
+                            healthcare
+                            team. Each time a shop hits the $250 milestone, Grub for Scrubs will place an order and
+                            schedule
+                            a delivery.
+                        </p>
                     </div>
-                    <h3 class="restaurant-name">Elementary Coffee</h3>
-                    <label class="restaurant-raised -preload" gs-amount>$0</label>
-                    <a class="button -preload" href="#" target="_blank" rel="noopener noreferrer"
-                        onclick="gtag('event', 'click', {'event_category': 'Donate Button', 'event_label': 'Elementary Coffee'});"
-                        gs-donate>Donate</a>
-                </li>
-                <li class="restaurant" gs-slug="little-amps-coffee-roasters-grub-for-scrubs-hbg"
-                    gs-name="Little Amps Coffee Roasters">
-                    <div class="restaurant-logo">
-                        <a href="https://littleampscoffee.com/" target="_blank" rel="noopener noreferrer">
-                            <img src="assets/img/logo-littleamps.png"
-                                srcset="assets/img/logo-littleamps.png 1x, assets/img/logo-littleamps@2x.png 2x"
-                                alt="Little Amps Coffee Roasters Logo" />
-                        </a>
+                    <div class="restaurants-sectionHeader-milestone">
+                        <div class="restaurants-sectionHeader-milestone-text">
+                            <label>Order Milestone</label>
+                            <p>$250</p>
+                        </div>
+                        <div class="restaurants-sectionHeader-milestone-icon">
+                            <img src="assets/img/milestone.png"
+                                srcset="assets/img/milestone.png 1x, assets/img/milestone@2x.png 2x"
+                                alt="A party icon" />
+                        </div>
                     </div>
-                    <h3 class="restaurant-name">Little Amps Coffee Roasters</h3>
-                    <label class="restaurant-raised -preload" gs-amount>$0</label>
-                    <a class="button -preload" href="#" target="_blank" rel="noopener noreferrer"
-                        onclick="gtag('event', 'click', {'event_category': 'Donate Button', 'event_label': 'Little Amps'});"
-                        gs-donate>Donate</a>
-                </li>
-                <li class="restaurant" gs-slug="the-vegetable-hunter-grub-for-scrubs-hbg" gs-name="Vegetable Hunter">
-                    <div class="restaurant-logo">
-                        <a href="http://thevegetablehunter.com/" target="_blank" rel="noopener noreferrer">
-                            <img src="assets/img/logo-veghunter.png"
-                                srcset="assets/img/logo-veghunter.png 1x, assets/img/logo-veghunter@2x.png 2x"
-                                alt="Vegetable Hunter Coffee Logo" />
-                        </a>
-                    </div>
-                    <h3 class="restaurant-name">Vegetable Hunter</h3>
-                    <label class="restaurant-raised -preload" gs-amount>$0</label>
-                    <a class="button -preload" href="#" target="_blank" rel="noopener noreferrer"
-                        onclick="gtag('event', 'click', {'event_category': 'Donate Button', 'event_label': 'Vegetable Hunter'});"
-                        gs-donate>Donate</a>
-                </li>
-                <li class="restaurant" gs-slug="beef-jerky-outlet-hershey-pa-grub-for-scrubs-hbg"
-                    gs-name="Beef Jerky Outlet, Hershey, PA">
-                    <div class="restaurant-logo">
-                        <a href="https://www.beefjerkyoutlet.com/hershey" target="_blank" rel="noopener noreferrer">
-                            <img src="assets/img/logo-beefjerky.png"
-                                srcset="assets/img/logo-beefjerky.png 1x, assets/img/logo-beefjerky@2x.png 2x"
-                                alt="Beef Jerky Outlet, Hershey, PA Logo" />
-                        </a>
-                    </div>
-                    <h3 class="restaurant-name">Beef Jerky Outlet, Hershey, PA</h3>
-                    <label class="restaurant-raised -preload" gs-amount>$0</label>
-                    <a class="button -preload" href="#" target="_blank" rel="noopener noreferrer"
-                        onclick="gtag('event', 'click', {'event_category': 'Donate Button', 'event_label': 'Beef Jerky Outlet, Hershey, PA'});"
-                        gs-donate>Donate</a>
-                </li>
-            </ul>
+                </div>
+                <div class="restaurants-sort">
+                    <form>
+                        <label>
+                            <span>SORT:</span>
+                            <select name="sort" selectize>
+                                <option value="alpha">Alphabetically</option>
+                                <option value="high">Amount Raised (High to Low)</option>
+                                <option value="low">Amount Raised (Low to High)</option>
+                            </select>
+                        </label>
+                    </form>
+                </div>
+                <ul class="-preload" gs-restaurants>
+                    <li class="restaurant" gs-slug="elementary-coffee-co-grub-for-scrubs-hbg"
+                        gs-name="Elementary Coffee">
+                        <div class="restaurant-logo">
+                            <a href="https://www.elementarycoffee.co/" target="_blank" rel="noopener noreferrer">
+                                <img src="assets/img/logo-elementary.png"
+                                    srcset="assets/img/logo-elementary.png 1x, assets/img/logo-elementary@2x.png 2x"
+                                    alt="Elementary Coffee Logo" />
+                            </a>
+                        </div>
+                        <h3 class="restaurant-name">Elementary Coffee</h3>
+                        <label class="restaurant-raised -preload" gs-amount>$0</label>
+                        <a class="button -preload" href="#" target="_blank" rel="noopener noreferrer"
+                            onclick="gtag('event', 'click', {'event_category': 'Donate Button', 'event_label': 'Elementary Coffee'});"
+                            gs-donate>Donate</a>
+                    </li>
+                    <li class="restaurant" gs-slug="little-amps-coffee-roasters-grub-for-scrubs-hbg"
+                        gs-name="Little Amps Coffee Roasters">
+                        <div class="restaurant-logo">
+                            <a href="https://littleampscoffee.com/" target="_blank" rel="noopener noreferrer">
+                                <img src="assets/img/logo-littleamps.png"
+                                    srcset="assets/img/logo-littleamps.png 1x, assets/img/logo-littleamps@2x.png 2x"
+                                    alt="Little Amps Coffee Roasters Logo" />
+                            </a>
+                        </div>
+                        <h3 class="restaurant-name">Little Amps Coffee Roasters</h3>
+                        <label class="restaurant-raised -preload" gs-amount>$0</label>
+                        <a class="button -preload" href="#" target="_blank" rel="noopener noreferrer"
+                            onclick="gtag('event', 'click', {'event_category': 'Donate Button', 'event_label': 'Little Amps'});"
+                            gs-donate>Donate</a>
+                    </li>
+                    <li class="restaurant" gs-slug="the-vegetable-hunter-grub-for-scrubs-hbg"
+                        gs-name="Vegetable Hunter">
+                        <div class="restaurant-logo">
+                            <a href="http://thevegetablehunter.com/" target="_blank" rel="noopener noreferrer">
+                                <img src="assets/img/logo-veghunter.png"
+                                    srcset="assets/img/logo-veghunter.png 1x, assets/img/logo-veghunter@2x.png 2x"
+                                    alt="Vegetable Hunter Coffee Logo" />
+                            </a>
+                        </div>
+                        <h3 class="restaurant-name">Vegetable Hunter</h3>
+                        <label class="restaurant-raised -preload" gs-amount>$0</label>
+                        <a class="button -preload" href="#" target="_blank" rel="noopener noreferrer"
+                            onclick="gtag('event', 'click', {'event_category': 'Donate Button', 'event_label': 'Vegetable Hunter'});"
+                            gs-donate>Donate</a>
+                    </li>
+                    <li class="restaurant" gs-slug="beef-jerky-outlet-hershey-pa-grub-for-scrubs-hbg"
+                        gs-name="Beef Jerky Outlet, Hershey, PA">
+                        <div class="restaurant-logo">
+                            <a href="https://www.beefjerkyoutlet.com/hershey" target="_blank" rel="noopener noreferrer">
+                                <img src="assets/img/logo-beefjerky.png"
+                                    srcset="assets/img/logo-beefjerky.png 1x, assets/img/logo-beefjerky@2x.png 2x"
+                                    alt="Beef Jerky Outlet, Hershey, PA Logo" />
+                            </a>
+                        </div>
+                        <h3 class="restaurant-name">Beef Jerky Outlet, Hershey, PA</h3>
+                        <label class="restaurant-raised -preload" gs-amount>$0</label>
+                        <a class="button -preload" href="#" target="_blank" rel="noopener noreferrer"
+                            onclick="gtag('event', 'click', {'event_category': 'Donate Button', 'event_label': 'Beef Jerky Outlet, Hershey, PA'});"
+                            gs-donate>Donate</a>
+                    </li>
+                </ul>
+            </section>
         </section>
         <section class="cta">
             <div class="cta-wrapper">
@@ -535,8 +578,8 @@
         </div>
     </footer>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.6/handlebars.runtime.min.js"></script>
-    <script src="assets/app.min.js?q=2"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/js/standalone/selectize.min.js"></script>
+    <script src="assets/app.js?q=3"></script>
     <script> (function () { var qs, js, q, s, d = document, gi = d.getElementById, ce = d.createElement, gt = d.getElementsByTagName, id = "typef_orm_share", b = "https://embed.typeform.com/"; if (!gi.call(d, id)) { js = ce.call(d, "script"); js.id = id; js.src = b + "embed.js"; q = gt.call(d, "script")[0]; q.parentNode.insertBefore(js, q) } })() </script>
 </body>
 

@@ -487,67 +487,136 @@ p {
   .process-diagram img {
     width: 100%; }
 
-.restaurants {
-  margin: 4em calc(4vw - .5em) 0; }
-  .restaurants ul {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    max-width: 65em;
-    margin: 0 auto; }
-  .restaurants-sectionHeader {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    max-width: 65em;
-    margin: 10em auto 4em; }
+.restaurants ul {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  max-width: 65em;
+  margin: 0 auto; }
+.restaurants-sectionHeader {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 65em;
+  margin: 5em auto 4em; }
+  @media only screen and (min-width: 1000px) {
+    .restaurants-sectionHeader {
+      flex-direction: row;
+      align-items: flex-end; } }
+  .restaurants-sectionHeader-text {
+    text-align: center; }
     @media only screen and (min-width: 1000px) {
-      .restaurants-sectionHeader {
+      .restaurants-sectionHeader-text {
+        text-align: left; } }
+    .restaurants-sectionHeader-text h3 {
+      color: #fa5356;
+      font-family: "trumpsoftpro", sans-serif;
+      font-size: 2em;
+      margin-bottom: 2rem; }
+    .restaurants-sectionHeader-text p {
+      max-width: 24em; }
+  .restaurants-sectionHeader-milestone {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    margin: 2em 0 0 0; }
+    @media only screen and (min-width: 1000px) {
+      .restaurants-sectionHeader-milestone {
+        margin: 0 0 0 2em;
         flex-direction: row;
-        align-items: flex-end; } }
-    .restaurants-sectionHeader-text {
-      text-align: center; }
+        text-align: right; } }
+    .restaurants-sectionHeader-milestone label {
+      color: #3eb9d9;
+      font-family: "trumpsoftpro", sans-serif;
+      font-size: 1.5em;
+      text-transform: uppercase; }
+    .restaurants-sectionHeader-milestone p {
+      color: #fa5356;
+      font-family: "trumpsoftpro", sans-serif;
+      font-size: 2em;
+      text-transform: uppercase; }
+    .restaurants-sectionHeader-milestone-icon {
+      width: 4em;
+      height: 4em;
+      margin: 0 1em 0 0; }
       @media only screen and (min-width: 1000px) {
-        .restaurants-sectionHeader-text {
-          text-align: left; } }
-      .restaurants-sectionHeader-text h3 {
-        color: #fa5356;
-        font-family: "trumpsoftpro", sans-serif;
-        font-size: 2em;
-        margin-bottom: 2rem; }
-      .restaurants-sectionHeader-text p {
-        max-width: 24em; }
-    .restaurants-sectionHeader-milestone {
-      display: flex;
-      flex-direction: row-reverse;
-      justify-content: flex-end;
-      margin: 2em 0 0 0; }
-      @media only screen and (min-width: 1000px) {
-        .restaurants-sectionHeader-milestone {
-          margin: 0 0 0 2em;
-          flex-direction: row;
-          text-align: right; } }
-      .restaurants-sectionHeader-milestone label {
+        .restaurants-sectionHeader-milestone-icon {
+          margin: 0 0 0 1em; } }
+      .restaurants-sectionHeader-milestone-icon img {
+        width: 100%; }
+.restaurants-sort {
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 1;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 65em;
+  margin: 5em auto 4em; }
+  @media only screen and (min-width: 1000px) {
+    .restaurants-sort {
+      align-items: flex-start; } }
+  .restaurants-sort form {
+    width: 100%; }
+  .restaurants-sort label > span {
+    color: #3eb9d9;
+    font-family: "trumpsoftpro", sans-serif;
+    font-weight: bold;
+    letter-spacing: .2em;
+    line-height: 2.5rem;
+    vertical-align: top; }
+  .restaurants-sort select {
+    display: none; }
+  .restaurants-sort .selectize-control.single {
+    display: inline-block;
+    width: 18em; }
+    @media only screen and (max-width: 410px) {
+      .restaurants-sort .selectize-control.single {
+        width: calc(100% - 60px); } }
+    .restaurants-sort .selectize-control.single .selectize-input {
+      border-radius: 0.5rem;
+      border: 0.125em solid #3eb9d9;
+      background: none;
+      box-shadow: none;
+      display: inline-block;
+      padding-top: 10px; }
+      .restaurants-sort .selectize-control.single .selectize-input:after {
+        border: solid #fa5356;
+        border-width: 0 3px 3px 0;
+        display: inline-block;
+        padding: 3px;
+        margin-top: -6px;
+        transform: rotate(45deg);
+        -webkit-transform: rotate(45deg); }
+      .restaurants-sort .selectize-control.single .selectize-input.dropdown-active {
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0; }
+        .restaurants-sort .selectize-control.single .selectize-input.dropdown-active:before {
+          content: none; }
+        .restaurants-sort .selectize-control.single .selectize-input.dropdown-active:after {
+          transform: rotate(-135deg);
+          -webkit-transform: rotate(-135deg); }
+      .restaurants-sort .selectize-control.single .selectize-input .item {
         color: #3eb9d9;
-        font-family: "trumpsoftpro", sans-serif;
-        font-size: 1.5em;
-        text-transform: uppercase; }
-      .restaurants-sectionHeader-milestone p {
-        color: #fa5356;
-        font-family: "trumpsoftpro", sans-serif;
-        font-size: 2em;
-        text-transform: uppercase; }
-      .restaurants-sectionHeader-milestone-icon {
-        width: 4em;
-        height: 4em;
-        margin: 0 1em 0 0; }
-        @media only screen and (min-width: 1000px) {
-          .restaurants-sectionHeader-milestone-icon {
-            margin: 0 0 0 1em; } }
-        .restaurants-sectionHeader-milestone-icon img {
-          width: 100%; }
+        font-size: 1.125rem; }
+  .restaurants-sort .selectize-dropdown.single {
+    border: 0.125em solid #3eb9d9;
+    border-radius: 0.5rem;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    border-top: none;
+    margin-top: -2px;
+    box-shadow: none; }
+    .restaurants-sort .selectize-dropdown.single .option {
+      background-color: unset;
+      color: #3eb9d9;
+      cursor: pointer;
+      font-size: 1.125rem;
+      line-height: 1.75rem; }
+      .restaurants-sort .selectize-dropdown.single .option:hover {
+        color: #218da9; }
 
 .restaurant {
   border-radius: 0.5rem;
@@ -592,5 +661,41 @@ p {
     font-weight: bold; }
   .restaurant .button {
     margin-top: 1.5em; }
+
+.tabs {
+  margin: 8em calc(4vw - .5em) 0; }
+  .tabs .tabs-wrapper {
+    width: 100%;
+    height: 3.5em;
+    max-width: 64em;
+    margin: 0 auto;
+    text-align: center;
+    border-radius: 0.5rem;
+    border: 0.125em solid #3eb9d9; }
+  .tabs .tab {
+    margin: 0.125em;
+    color: #3eb9d9;
+    border-radius: .3rem;
+    display: inline-block;
+    font-size: 1.125rem;
+    font-weight: bold;
+    line-height: 2.5em;
+    width: calc(50% - 0.375em);
+    height: calc(100% - 0.25em);
+    text-decoration: none;
+    text-transform: uppercase; }
+    @media only screen and (max-width: 400px) {
+      .tabs .tab {
+        font-size: 0.8rem;
+        line-height: 3.8em; } }
+    .tabs .tab:hover {
+      text-decoration: underline; }
+    .tabs .tab.-selected {
+      background: #3eb9d9;
+      color: white; }
+  .tabs .tab-panel {
+    display: none; }
+    .tabs .tab-panel.-selected {
+      display: block; }
 
 /*# sourceMappingURL=main.css.map */
