@@ -193,6 +193,21 @@ grubforscrubs.views.MainView = (function () {
                             .text("$" + response.amountRaised.substring(0, (response.amountRaised.indexOf('.'))))
                             .removeClass("-preload");
 
+                        $target.find("[gs-message]")
+                            .text(function () {
+                                var raised = Number(response.amountRaised.substring(0, (response.amountRaised.indexOf('.'))).replace(/,/g, ''));
+                                var goal = Number(restaurant.getAttribute("gs-goal"));
+                                var progress = (raised - (goal * Math.floor(raised / goal))) / goal;
+                                if (raised === 0) {
+                                    return "Be the first!";
+                                } else if (progress < .49 ) {
+                                    return "Great start!";
+                                } else if (progress < 1) {
+                                    return "Almost there!";
+                                }
+                            })
+                            .removeClass("-preload");
+
                         $target.find("[gs-donate]")
                             .attr("href", response.url + "/donate")
                             .removeClass("-preload");
