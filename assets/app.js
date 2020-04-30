@@ -195,11 +195,16 @@ grubforscrubs.views.MainView = (function () {
 
                         $target.find("[gs-message]")
                             .text(function () {
+                                var deliveries = Number(restaurant.getAttribute("gs-deliveries"))
                                 var raised = Number(response.amountRaised.substring(0, (response.amountRaised.indexOf('.'))).replace(/,/g, ''));
                                 var goal = Number(restaurant.getAttribute("gs-goal"));
                                 var progress = (raised - (goal * Math.floor(raised / goal))) / goal;
                                 if (raised === 0) {
                                     return "Be the first!";
+                                } else if (Math.floor(raised / goal) > deliveries) {
+                                    return "Awaiting Delivery!"
+                                } else if (deliveries > 0 && progress === 0) {
+                                    return "Let's do it again!"
                                 } else if (progress < .49 ) {
                                     return "Great start!";
                                 } else if (progress < 1) {
