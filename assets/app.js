@@ -177,7 +177,7 @@ grubforscrubs.views.MainView = (function () {
             this._leaderboardService.getTemplate("grub-for-scrubs-hbg", {
                 onSuccess: $.proxy(function (response) {
                     this._$stats
-                        .text("$" + response.amountRaised.substring(0, (response.amountRaised.indexOf('.'))))
+                        .text(this._getValue(response.amountRaised))
                         .removeClass("-preload");
                 }, this)
             })
@@ -187,10 +187,10 @@ grubforscrubs.views.MainView = (function () {
 
             $("[gs-slug]").each($.proxy(function (index, restaurant) {
                 this._leaderboardService.getCampaign(restaurant.getAttribute("gs-slug"), {
-                    onSuccess: function (response) {
+                    onSuccess: $.proxy(function (response) {
                         $target = $(restaurant);
                         $target.find("[gs-amount]")
-                            .text("$" + response.amountRaised.substring(0, (response.amountRaised.indexOf('.'))))
+                            .text(this._getValue(response.amountRaised))
                             .removeClass("-preload");
 
                         $target.find("[gs-message]")
@@ -205,7 +205,7 @@ grubforscrubs.views.MainView = (function () {
                                     return "Awaiting Delivery!"
                                 } else if (deliveries > 0 && progress === 0) {
                                     return "Let's do it again!"
-                                } else if (progress < .49 ) {
+                                } else if (progress < .49) {
                                     return "Great start!";
                                 } else if (progress < 1) {
                                     return "Almost there!";
@@ -216,7 +216,7 @@ grubforscrubs.views.MainView = (function () {
                         $target.find("[gs-donate]")
                             .attr("href", response.url + "/donate")
                             .removeClass("-preload");
-                    }
+                    }, this)
                 });
             }, this))
         },
@@ -251,6 +251,10 @@ grubforscrubs.views.MainView = (function () {
             return items.map(function (i, r) {
                 return r.name;
             });
+        },
+
+        _getValue: function (amount) {
+            return "$" + Number(parseFloat(amount.replace(/[,\$]/g, '')).toFixed(0)).toLocaleString();
         },
 
         _sortRestaurants: function () {
