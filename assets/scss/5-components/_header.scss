@@ -47,18 +47,18 @@
             @media only screen and (min-width: 1000px) {
                 margin-top: calc(5vw * 1.5 - 2rem);
             }
-        
+
             span {
                 display: block;
             }
-        
+
             &-accent {
                 color: $red;
                 font-size: 2.5rem;
                 margin: .25rem 0;
             }
         }
-    
+
         &-subtitle {
             margin-top: 1rem;
             max-width: 18em;
@@ -81,7 +81,7 @@
             @media only screen and (min-width: 1000px) {
                 margin-top: calc(4vw * 2 - 2em);
             }
-            
+
         }
     }
 
@@ -89,6 +89,7 @@
         width: 100%;
         position: relative;
         background-color: $blue;
+        overflow: hidden;
         z-index: 1;
 
         &.-noFill {
@@ -97,7 +98,6 @@
 
         @media only screen and (max-width: 1000px) {
             height: 16em;
-            overflow: hidden;
             margin-top: 2em;
         }
 
