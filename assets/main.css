@@ -190,19 +190,13 @@ p {
     align-items: stretch;
     text-align: center;
     padding: 4rem 2rem 2rem;
-    border-radius: 0.5rem; }
+    border-radius: 0.5rem;
+    width: 100%; }
     .cta-col:first-of-type {
       background-color: #fa5356; }
     .cta-col:last-of-type {
       background-color: #3eb9d9;
       margin: 2em 0 0 0; }
-    @media only screen and (min-width: 1000px) {
-      .cta-col {
-        width: 50%; }
-        .cta-col:first-of-type {
-          margin: 0 .5em 0 0; }
-        .cta-col:last-of-type {
-          margin: 0 0 0 .5em; } }
     .cta-col > p {
       color: white;
       font-size: 1.5rem;
@@ -212,7 +206,7 @@ p {
       flex-grow: 1; }
       @media only screen and (min-width: 1000px) {
         .cta-col > p {
-          max-width: 14em; } }
+          padding: 0 2em; } }
     .cta-col .cta-status {
       color: white;
       text-align: center;
