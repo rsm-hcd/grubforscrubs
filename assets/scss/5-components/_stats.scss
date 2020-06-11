@@ -42,7 +42,6 @@
 
     &::before, &::after {
         position: absolute;
-        content: "";
         display: block;
         background-color: $lightGrey;
         width: 2px;
@@ -50,26 +49,53 @@
         bottom: 0;
     }
 
-    &::before {
-        left: 33.33%;
+    @media only screen and (min-width: 600px) {
+        &::before {
+            content: "";
+            left: 50%;
+        }
     }
 
-    &::after {
-        left: 66.66%;
+    @media only screen and (min-width: 1000px) {
+        &::before {
+            content: "";
+            left: 33.33%;
+        }
+    
+        &::after {
+            content: "";
+            left: 66.66%;
+        }
     }
 
     &-item {
         display: block;
-        width: 100%;
-        min-width: 20rem;
+        flex-grow: 1;
         padding: 2em;
+
+        @media only screen and (max-width: 599px) {
+            width: 100%;
+            margin: 0 3rem;
+
+            &:nth-of-type(1n+2) {
+                border-top: 2px solid $lightGrey;
+            }
+        }
+
+        @media only screen and (min-width: 600px) and (max-width: 999px) {
+            width: 50%;
+
+            &:nth-of-type(1n+3) {
+                border-top: 2px solid $lightGrey;
+            }
+        }
 
         @media only screen and (min-width: 1000px) {
             width: 33%;
-        }
 
-        &:nth-of-type(1n+4) {
-            border-top: 2px solid $lightGrey;
+            &:nth-of-type(1n+4) {
+                border-top: 2px solid $lightGrey;
+            }
         }
     }
 
