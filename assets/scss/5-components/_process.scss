@@ -1,5 +1,6 @@
 .process {
     margin: 10em 4vw 0;
+    text-align: center;
 
     @media only screen and (max-width: 1000px) {
         margin-top: 6rem;
@@ -10,46 +11,29 @@
         flex-direction: column;
         align-items: center;
         justify-content: space-between;
-        max-width: 64em;
         margin: 0 auto;
         text-align: center;
         background-color: $red;
-        padding: 2em;
+        padding: 4em 2em;
         border-radius: $border-radius;
-
-        @media only screen and (min-width: 1000px) {
-            flex-direction: row;
-            text-align: left;
-            padding: 4em;
-        }
+        max-width: 65rem;
     }
 
     h2 {
         color: white;
+        text-align: center;
     }
 
     p {
         color: white;
-        max-width: 32em;
         margin-top: 1.5em;
-        padding: 0 0 2em 0;
+        font-size: 1.25em;
+        max-width: 36em;
+        text-align: center;
 
         @media only screen and (min-width: 1000px) {
-            padding: 0 4em 0 0;
-        }
-
-        a {
-            color: white;
-
-            &:hover {
-                color: $darkGrey;
-            }
-        }
-    }
-
-    &-diagram {
-        img {
-            width: 100%;
+            font-size: 1.5em;
+            margin-top: 2rem;
         }
     }
 }
