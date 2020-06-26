@@ -192,7 +192,7 @@ p {
 
 .deliveries {
   margin: 0 4vw; }
-  .deliveries ul {
+  .deliveries-list {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -226,12 +226,12 @@ p {
   text-align: left;
   color: #4a4c4d; }
   .delivery > div {
-    display: block; }
+    display: block;
+    position: relative; }
     .delivery > div > span {
       display: inline;
-      font-family: "trumpsoftpro", sans-serif;
-      font-weight: bold;
-      letter-spacing: .1em; }
+      font-family: "Source Sans Pro", sans-serif;
+      font-weight: bold; }
       @media only screen and (min-width: 700px) {
         .delivery > div > span {
           display: none; } }
@@ -240,6 +240,13 @@ p {
         display: inline-block;
         width: calc(25% - .25em);
         vertical-align: top; } }
+  .delivery sup {
+    margin-left: .25rem;
+    line-height: 1rem; }
+    .delivery sup a {
+      color: #3eb9d9;
+      font-size: .75rem;
+      line-height: 1rem; }
   .delivery.-header {
     border-color: transparent;
     display: none;
@@ -330,6 +337,30 @@ p {
   .footer-builtBy img, .footer-poweredBy img {
     max-width: 7em;
     margin-top: 1em; }
+
+.footnotes {
+  background-color: rgba(194, 196, 198, 0.25);
+  border-radius: .5rem;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  max-width: 65em;
+  margin: 2rem auto 0; }
+  @media only screen and (min-width: 1000px) {
+    .footnotes {
+      flex-direction: row;
+      padding: 2rem; } }
+  .footnotes li {
+    padding: 1rem;
+    width: 100%; }
+    @media only screen and (min-width: 1000px) {
+      .footnotes li {
+        width: 50%; } }
+    .footnotes li dfn {
+      font-style: normal;
+      font-weight: bold; }
+      .footnotes li dfn:after {
+        content: ": "; }
 
 .header {
   display: flex;
