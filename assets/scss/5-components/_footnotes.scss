@@ -1,0 +1,30 @@
+.footnotes {
+    background-color: rgba(194, 196, 198, .25);
+    border-radius: .5rem;
+    display: flex;
+    flex-direction: column;
+    margin-top: 2rem;
+    padding: 1rem;
+
+    @media only screen and (min-width: 1000px) {
+        flex-direction: row;
+        padding: 2rem;
+    }
+    
+    li {
+        padding: 1rem;
+        width: 100%;
+
+        @media only screen and (min-width: 1000px) {
+            width: 50%;
+        }
+
+        dfn {
+            font-style: normal;
+            font-weight: bold;
+            &:after {
+                content: ": ";
+            }
+        }
+    }
+}
