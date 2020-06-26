@@ -1,7 +1,7 @@
 .deliveries {
     margin: 0 4vw;
 
-    ol {
+    &-list {
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;

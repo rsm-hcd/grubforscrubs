@@ -192,7 +192,7 @@ p {
 
 .deliveries {
   margin: 0 4vw; }
-  .deliveries ol {
+  .deliveries-list {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -343,8 +343,9 @@ p {
   border-radius: .5rem;
   display: flex;
   flex-direction: column;
-  margin-top: 2rem;
-  padding: 1rem; }
+  padding: 1rem;
+  max-width: 65em;
+  margin: 2rem auto 0; }
   @media only screen and (min-width: 1000px) {
     .footnotes {
       flex-direction: row;
