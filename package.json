@@ -9,7 +9,7 @@
   "author": "Alex Getty <agetty@andculture.com> (http://alexgetty.co)",
   "license": "ISC",
   "dependencies": {
-    "grunt": "^1.1.0",
+    "grunt": "^1.5.3",
     "grunt-cli": "^1.3.2",
     "grunt-contrib-clean": "^2.0.0",
     "grunt-contrib-concat": "^1.0.1",
